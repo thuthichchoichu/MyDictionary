@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="fill_horizontal"
+    android:id="@+id/bbbn"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/txt_Definition"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="-2dp"
+        android:layout_marginEnd="8dp"
+        android:background="@null"
+        android:gravity="fill_horizontal"
+        android:inputType="text|textMultiLine|textCapSentences"
+        android:textColor="#055578"
+        android:textSize="20sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_itemExample"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_Definition"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="25sp" />
+
+    <RelativeLayout
+        android:layout_below="@+id/rcv_itemExample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+<!-- This is edit text i need to get coordinates-->
+        <EditText
+            android:id="@+id/edt_AddExample"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:hint="  ....."
+            android:paddingEnd="50dp"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            tools:ignore="RtlSymmetry" />
+
+        <ImageView
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_edit_svgrepo_com" />
+
+        <ImageView
+            android:id="@+id/btn_confirm"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignEnd="@+id/edt_AddExample"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/ic_c" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
