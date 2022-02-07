@@ -14,7 +14,6 @@
         android:src="@drawable/ic_dot_svgrepo_com" />
 
     <EditText
-        android:textStyle="normal"
         android:fontFamily="sans-serif-light"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"

@@ -12,6 +12,7 @@ import com.visualpro.realproject.Model.WordTypeSeparate
 import com.visualpro.realproject.Model.model_relations.Separate_DefinitionList
 import com.visualpro.realproject.network.*
 import com.visualpro.realproject.network.Api_Configs.Companion.BASE_URL
+import com.visualpro.realproject.network.local_db.User_DAO
 import com.visualpro.realproject.network.local_db.category_DAO
 import com.visualpro.realproject.views.ResultActivity.Companion.SOUND_TEMPORARY_UK
 import com.visualpro.realproject.views.ResultActivity.Companion.SOUND_TEMPORARY_US
@@ -33,13 +34,13 @@ import java.net.URL
 import kotlinx.coroutines.launch as launch1
 
 
-class Repository(private val categoryDao: category_DAO) {
-    private var currentWordLocal=false
+class Repository(private val categoryDao: category_DAO, private val userDao: User_DAO) {
+    private var currentWordLocal = false
     private var soundUk = -1
     private var soundUs = -1
-    var allCategory = categoryDao.getAllCategory()
+    var allCategory = userDao.getAllCategory()
 
-     var localFilePath = ""
+    var localFilePath = ""
     var pool: SoundPool = SoundPool.Builder().setMaxStreams(1).build()
     private val mCoroutine = CoroutineScope(IO)
     private val oxSearchservice: Ox_SearchService = Retrofit
@@ -62,11 +63,14 @@ class Repository(private val categoryDao: category_DAO) {
 
     var mainInterface: DataInterface_Main? = null
     var resultInterface: DataInterface_Result? = null
+
+    lateinit var detailInterface:DataInterface_Details
     var usSoundLoaded = false
     var ukSoundLoaded = false
 
     fun performSearches(word: String) {
         mCoroutine.launch1 {
+
             val respond = oxSearchservice.search(word, "application/json;charset=utf-8")
             mainInterface!!.setSearchItems(respond)
 
@@ -94,15 +98,18 @@ class Repository(private val categoryDao: category_DAO) {
             val localWord = categoryDao.selectWord(word)
             if (localWord != null) {
                 Log.d("test", "get local data")
-                currentWordLocal=true
+                currentWordLocal = true
                 withContext(Main) {
                     resultInterface!!.setWordItem(localWord)
                 }
             } else {
-                currentWordLocal=true
+                currentWordLocal = true
                 val doc: Document?
                 try {
-                    doc = if (useUrl && !url.equals("")) Jsoup.connect(url).get() else Jsoup.connect(getOxfordURL(word)).get()
+                    doc =
+                        if (useUrl && !url.equals("")) Jsoup.connect(url).get() else Jsoup.connect(
+                            getOxfordURL(word)
+                        ).get()
                     if (doc != null) {
                         val master = doc.selectFirst("div[class=responsive_entry_center_wrap]")
                         if (master != null) {
@@ -302,15 +309,20 @@ class Repository(private val categoryDao: category_DAO) {
             } catch (exception: Exception) {
                 Log.d("test", "error sound:${exception.message} ")
             } finally {
-                if (fOut != null) {
-                    fOut.close()
+                try {
+                    if (fOut != null) {
+                        fOut.close()
+                    }
+                    if (bOut != null) {
+                        bOut.close()
+                    }
+                    if (bIn != null) {
+                        bIn.close()
+                    }
+                }catch (ex:Exception){
+
                 }
-                if (bOut != null) {
-                    bOut.close()
-                }
-                if (bIn != null) {
-                    bIn.close()
-                }
+
             }
 
         }
@@ -340,15 +352,19 @@ class Repository(private val categoryDao: category_DAO) {
             } catch (exception: Exception) {
                 Log.getStackTraceString(exception)
             } finally {
-                if (fOut != null) {
-                    fOut!!.close()
-                }
-                if (bOut != null) {
-                    bOut!!.close()
-                }
-                if (bIn != null) {
-                    bIn!!.close()
-                }
+             try {
+                 if (fOut != null) {
+                     fOut!!.close()
+                 }
+                 if (bOut != null) {
+                     bOut!!.close()
+                 }
+                 if (bIn != null) {
+                     bIn!!.close()
+                 }
+             }catch (ex1:Exception){
+
+             }
             }
 
         }
@@ -361,21 +377,30 @@ class Repository(private val categoryDao: category_DAO) {
     @WorkerThread
     fun addEmptyCategory(item: Category) {
         mCoroutine.launch1 {
-            categoryDao.insertCategory(item)
+            userDao.insertCategory(item)
         }
     }
 
     fun getListCategoryName() {
         mCoroutine.launch1 {
-            resultInterface!!.setListCategorysName(categoryDao.getListCategorysName())
+            resultInterface!!.setListCategorysName(userDao.getListCategorysName())
         }
 
     }
 
-    fun addWordToCategory(word: Word, position: Int) {
+    fun getWordsByCategory(categoryID: Int) {
+        mCoroutine.launch1 {
+            detailInterface.setWordDetails(userDao.selectWordsByCategory(categoryID+1))
+
+        }
+
+    }
+
+    fun  addWordToCategory(word: Word, list: List<Definition>, position: Int) {
         mCoroutine.launch1 {
             word.Category_Id = position + 1
-            categoryDao.insertUserWord(word)
+            userDao.UserSaveWord(word)
+//            userDao.insertDefinition(list)
 
 
         }

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.os.Parcelable
 import android.util.Log
 import android.view.Menu
 import android.view.View
@@ -27,7 +26,6 @@ import com.visualpro.realproject.viewmodel.MainActivityViewModel
 import com.visualpro.realproject.viewmodel.MainActivityViewModel.Companion.DATA_DEFINITION
 import com.visualpro.realproject.views.ResultActivity.Companion.INTENT_ID
 import com.visualpro.realproject.views.views_custom.AddCategoryDialog
-import java.util.*
 
 
 
@@ -35,7 +33,10 @@ class MainActivity2 : AppCompatActivity(), onItemRecyclerViewCkick, onItemCatego
     companion object{
         const val CATEGORY_NAME="category name"
         const val WORD_LIST="Word list"
+        const val CATEGORY_ID="categoryId"
     }
+
+
     private lateinit var bind: ActivityMain222Binding
     val mViewModel: MainActivityViewModel by viewModels {
         MainActivityViewModel.MainActivityViewModelFactory((application as MainApplication).repository)
@@ -104,6 +105,7 @@ class MainActivity2 : AppCompatActivity(), onItemRecyclerViewCkick, onItemCatego
         categoreAdapter= CategoryAdapter(mViewModel.getCategoryData(),this,this)
 
         mViewModel.mCategoryWordListLiveData.observe(this){
+
           categoreAdapter.mList=it
             categoreAdapter.notifyDataSetChanged()
         }
@@ -194,12 +196,14 @@ class MainActivity2 : AppCompatActivity(), onItemRecyclerViewCkick, onItemCatego
     }
 
     override fun onClick(position: Int) {
-
-        val category = categoreAdapter.mList!!.get(position).wordList
-        val categoryName = categoreAdapter.mList!!.get(position).category.categoryName
+//        val category = categoreAdapter.mList!!.get(position).wordList
+//
+//        val categoryName = categoreAdapter.mList!!.get(position).category.categoryName
+//        val intent=Intent(this, DetailActivity::class.java )
+//        intent.putExtra(CATEGORY_NAME, categoryName)
+//        intent.putParcelableArrayListExtra(WORD_LIST, category as ArrayList<out Parcelable>)
         val intent=Intent(this, DetailActivity::class.java )
-        intent.putExtra(CATEGORY_NAME, categoryName)
-        intent.putParcelableArrayListExtra(WORD_LIST, category as ArrayList<out Parcelable>)
+        intent.putExtra(CATEGORY_ID, position)
         startActivity(intent)
 
     }

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.visualpro.myapplication.Model.NearByWord
 import com.visualpro.realproject.Model.WordTypeSeparate
 import com.visualpro.realproject.Model.model_relations.Category_WordList_Ref
+import com.visualpro.realproject.Model.model_relations.UserWord_DefinitionList_Ref
 import com.visualpro.realproject.Model.model_relations.Word_DefinitionList_Ref
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -59,9 +60,11 @@ class BindAdapter {
             (rcv.adapter as CategoryAdapter).mList = data
         }
 
+
+
         @JvmStatic
         @BindingAdapter("detailsData")
-        fun setDetailsData(rcv: RecyclerView, data: ArrayList<Word_DefinitionList_Ref>?) {
+        fun setDetailsData(rcv: RecyclerView, data: List<UserWord_DefinitionList_Ref>?) {
             if (data == null) {
                 return
             }

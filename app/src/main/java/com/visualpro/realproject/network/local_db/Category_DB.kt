@@ -16,12 +16,13 @@ import kotlinx.coroutines.launch
 
 @Database(
     entities = [Category::class, Word::class, Definition::class, WordTypeSeparate::class],
-    version = 5
+    version = 2
 )
 @TypeConverters(WordConverter::class)
 abstract class Category_DB : RoomDatabase() {
 
     abstract fun CategoryDAO(): category_DAO
+    abstract fun userDAO(): User_DAO
 
     companion object {
         const val DATABASE_NAME = "category.db"

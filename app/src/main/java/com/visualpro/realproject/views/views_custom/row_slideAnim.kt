@@ -11,7 +11,7 @@ object row_Slide {
 //            xDelta=500
         }
         val anim=TranslateAnimation(xDelta.toFloat(),0f,0f,0f)
-        anim.duration=300
+        anim.duration=600
         itemView.startAnimation(anim)
 
     }

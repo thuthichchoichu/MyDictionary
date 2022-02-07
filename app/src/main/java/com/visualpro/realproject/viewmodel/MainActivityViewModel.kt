@@ -8,6 +8,7 @@ import com.visualpro.myapplication.Model.Category
 import com.visualpro.myapplication.Model.SearchItem_Local
 import com.visualpro.realproject.Model.TranslateItems
 import com.visualpro.realproject.Model.model_relations.Category_WordList_Ref
+import com.visualpro.realproject.Model.model_relations.UserWord_DefinitionList_Ref
 import com.visualpro.realproject.network.DataInterface_Main
 import com.visualpro.realproject.network.submodel.SearchItemResponse
 import com.visualpro.realproject.repositories.Repository
@@ -21,7 +22,9 @@ class MainActivityViewModel(private val mRepo: Repository): ViewModel(), DataInt
         const val DATA_DEFINITION = "load definition"
     }
 
+    var mWordDetailsData=MutableLiveData<List<UserWord_DefinitionList_Ref>>()
     var mCategoryWordListLiveData: LiveData<List<Category_WordList_Ref>> = mRepo.allCategory.asLiveData()
+
     private var mSearchItem = MutableLiveData<ArrayList<SearchItem_Local>>()
     private var mTranslateItem = MutableLiveData<TranslateItems>()
     get(){return field}
@@ -48,6 +51,7 @@ class MainActivityViewModel(private val mRepo: Repository): ViewModel(), DataInt
     fun querySeach(searchQuery: String) {
         mRepo.performSearches(searchQuery)
     }
+
 
     override fun setSearchItems(list: ArrayList<SearchItem_Local>) {
         mSearchItem.postValue(list)
@@ -97,6 +101,16 @@ class MainActivityViewModel(private val mRepo: Repository): ViewModel(), DataInt
     fun notifyPropertyChanged(fieldId: Int) {
         callbacks.notifyCallbacks(this, fieldId, null)
     }
+
+
+    fun getWordsByCategory(categoryID:Int){
+        mRepo.getWordsByCategory(categoryID)
+    }
+
+    override fun setWordDetails(list: List<UserWord_DefinitionList_Ref>) {
+        mWordDetailsData.postValue(list)
+    }
+
 
 
 }

@@ -7,6 +7,7 @@ import androidx.databinding.PropertyChangeRegistry
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.visualpro.myapplication.Model.Definition
 import com.visualpro.myapplication.Model.Word
 import com.visualpro.realproject.Model.TranslateItems
 import com.visualpro.realproject.Model.WordTypeSeparate
@@ -20,7 +21,6 @@ class ResultViewModel(val mRepo: Repository, path: String) : ViewModel(), DataIn
         mRepo.resultInterface = this
         mRepo.localFilePath = path
     }
-
     var listFaild = ArrayList<String>()
 
     private val callbacks = PropertyChangeRegistry()
@@ -124,10 +124,14 @@ class ResultViewModel(val mRepo: Repository, path: String) : ViewModel(), DataIn
         mListCategoryName.postValue(list)
     }
 
-
     fun saveWordToDb(position: Int) {
-        mRepo!!.addWordToCategory(getWord()!!, position)
-    }
+        var list :ArrayList<Definition> = mDefinition.value?.defList as ArrayList<Definition>
+        for (i in list.indices){
+            list.get(i).belongtoCategory=position+1
+        }
+        var word=getWord()!!
+        word.user_Save=true
+        mRepo.addWordToCategory(getWord()!!,list, position) }
 
     fun getWordFromServer(
         word: String?,

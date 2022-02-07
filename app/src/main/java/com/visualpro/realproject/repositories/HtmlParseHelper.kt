@@ -2,6 +2,7 @@ package com.visualpro.realproject.repositories
 
 import com.visualpro.myapplication.Model.Definition
 import com.visualpro.myapplication.Model.NearByWord
+import com.visualpro.realproject.Model.Example
 import org.jsoup.nodes.Element
 import org.jsoup.select.Elements
 
@@ -100,13 +101,13 @@ class HtmlParseHelper(val master: Element) {
         for (i in DefGroup.indices) {
             val e1 = DefGroup!![i]
             val e2 = if (i < ExGroup.size) ExGroup[i] else Element("g")
-            val examples1 = java.util.ArrayList<String>()
+            val examples1 = ArrayList<Example>()
             val ex = e2.select("span[class=x]")
             for (e in ex) {
-                examples1.add(e.text())
+                examples1.add(Example(e.text(), false))
             }
             defList.add(
-                Definition(e1.text(), ArrayList(), examples1)
+                Definition(e1.text(), examples1)
             )
         }
         return defList

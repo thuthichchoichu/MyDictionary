@@ -13,6 +13,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.visualpro.myapplication.Model.Definition
+import com.visualpro.realproject.Model.Example
 import com.visualpro.realproject.Model.WordTypeSeparate
 import com.visualpro.realproject.R
 import com.visualpro.realproject.views.views_custom.RecyclerViewAnimation
@@ -75,7 +76,7 @@ class DefinitionAdapter(val context: Context) : RecyclerView.Adapter<RecyclerVie
         var layoutExpand: RelativeLayout = itemView.findViewById(R.id.layout_expand)
         var txt_Def: TextView = itemView.findViewById(R.id.txt_Definition)
         var rcvExample: RecyclerView = itemView.findViewById(R.id.rcv_itemExample)
-        val btnAdd: ImageView = itemView.findViewById(R.id.btn_add)
+        val btnAdd: ImageView = itemView.findViewById(R.id.btn_Add_Example)
         val btnConfirm: ImageView = itemView.findViewById(R.id.btn_confirm)
         var editText: EditText = itemView.findViewById(R.id.edt_AddExample)
         var img_Expand: ImageView = itemView.findViewById(R.id.img_Expand)
@@ -138,8 +139,9 @@ class DefinitionAdapter(val context: Context) : RecyclerView.Adapter<RecyclerVie
                             val editText = holder.editText
                             val pos = position
                             val example = editText.text.toString()
+                           
                             if (example != "") {
-                                mList.get(position)?.userExample!!.add(example)
+                                mList.get(position)?.example!!.add(Example(example, true))
                                 notifyItemChanged(pos)
                             }
 
@@ -152,7 +154,7 @@ class DefinitionAdapter(val context: Context) : RecyclerView.Adapter<RecyclerVie
                         })
 
                         holder.rcvExample.adapter =
-                            UserExample_Adapter(mList.get(position)?.oxfordExample)
+                            UserExample_Adapter(mList.get(position)?.example)
 
                         holder.rcvExample.layoutManager =
                             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);

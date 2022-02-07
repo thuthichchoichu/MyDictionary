@@ -9,5 +9,5 @@ import kotlinx.coroutines.SupervisorJob
 class MainApplication : Application() {
     val applicationScope = CoroutineScope(SupervisorJob())
     val database by lazy {Category_DB.getInstance(this, applicationScope)}
-    val repository by lazy { Repository(database.CategoryDAO()) }
+    val repository by lazy { Repository(database.CategoryDAO(), database.userDAO()) }
 }

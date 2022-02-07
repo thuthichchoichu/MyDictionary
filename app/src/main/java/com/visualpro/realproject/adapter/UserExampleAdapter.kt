@@ -1,14 +1,15 @@
 package com.visualpro.realproject.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
+import com.visualpro.realproject.Model.Example
 import com.visualpro.realproject.R
-import java.util.*
 
-class UserExample_Adapter(var mList: ArrayList<String>?) : RecyclerView.Adapter<UserExample_Adapter.HolderPro>() {
+class UserExample_Adapter(var mList: ArrayList<Example>?) : RecyclerView.Adapter<UserExample_Adapter.HolderPro>() {
     var isTxtExampleChanged = false
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderPro {
         val inflater = LayoutInflater.from(parent.context)
@@ -17,7 +18,10 @@ class UserExample_Adapter(var mList: ArrayList<String>?) : RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: HolderPro, position: Int) {
-        holder.txt_ExampleItem.setText(mList!![position])
+        holder.txt_ExampleItem.setText(mList!![position].example)
+        if(mList!!.get(position).isUserExample){
+            holder.txt_ExampleItem.setTextColor(Color.parseColor("#FF43A047"))
+        }
 //        holder.img_del.setOnClickListener {
 //            val pos = holder.adapterPosition
 //            if (isTxtExampleChanged) {

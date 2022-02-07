@@ -26,7 +26,7 @@
                 android:src="@drawable/ic_down24" />
 
 
-            <EditText
+            <TextView
                 android:id="@+id/txt_Definition"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -36,11 +36,6 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_toLeftOf="@+id/img_Expand"
-
-                android:background="@null"
-                android:enabled="false"
-                android:focusable="true"
-                android:inputType="text|textMultiLine|textCapSentences"
                 android:textColor="#2196F3"
                 android:textSize="20sp" />
         </RelativeLayout>
@@ -84,10 +79,10 @@
                     android:paddingBottom="4dp"
                     android:textSize="14sp"
                     android:textStyle="italic"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
 
                 <ImageView
-                    android:id="@+id/btn_add"
+                    android:id="@+id/btn_Add_Example"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -96,14 +91,14 @@
                     android:src="@drawable/ic_edit_svgrepo_com" />
 
                 <ImageView
-
                     android:id="@+id/btn_confirm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="6dp"
-                    android:src="@drawable/ic_c" />
+                    android:src="@drawable/ic_c"
+                    android:visibility="invisible" />
 
 
             </RelativeLayout>

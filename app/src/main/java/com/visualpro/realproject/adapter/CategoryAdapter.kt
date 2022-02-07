@@ -11,7 +11,6 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import com.visualpro.myapplication.Model.Category
 import com.visualpro.realproject.Model.model_relations.Category_WordList_Ref
-import com.visualpro.realproject.Model.model_relations.Word_DefinitionList_Ref
 import com.visualpro.realproject.R
 import com.visualpro.realproject.adapter.AdapterInterfaces.onItemCategoryClick
 
@@ -21,11 +20,21 @@ class CategoryAdapter(var mList: List<Category_WordList_Ref>?, var context: Cont
         field=value
         notifyDataSetChanged()
     }
-
     lateinit var colorDrawable: IntArray
+//    lateinit var mList: List<Category_WordList_Ref>
+
 
     init {
         initColorDrawable()
+    }
+   private fun getSize(wordListSize:Int): String {
+        when (wordListSize) {
+            0, 1 -> return Category.SMALLEST
+            2, 3 -> return Category.MEDIUM;
+            else -> {
+                return Category.BIGGEST
+            }
+        }
     }
 
     private fun initColorDrawable() {
@@ -74,33 +83,70 @@ class CategoryAdapter(var mList: List<Category_WordList_Ref>?, var context: Cont
     }
 
     override fun onBindViewHolder(holder: CategoryHolder, position: Int) {
-        var params: ViewGroup.LayoutParams = holder.itemView.layoutParams
-        when(mList!!.get(position).getSize()){
-            Category.SMALLEST -> params.height=(parentHight*0.2).toInt()
-            Category.MEDIUM -> params.height=(parentHight*0.35).toInt()
-            Category.BIGGEST -> params.height=(parentHight*0.6).toInt()
-        }
 
-        holder.itemView.layoutParams=params
+            var params: ViewGroup.LayoutParams = holder.itemView.layoutParams
+            when(mList!!.get(position).getSize()){
+                Category.SMALLEST -> params.height=(parentHight*0.2).toInt()
+                Category.MEDIUM -> params.height=(parentHight*0.35).toInt()
+                Category.BIGGEST -> params.height=(parentHight*0.6).toInt()
+            }
+            holder.itemView.layoutParams=params
+
+
+
+
 
         holder.layout.background = AppCompatResources.getDrawable(context, colorDrawable[mList!!.get(position).category.color])
         holder.img_Pinned.visibility=if(mList!!.get(position).category.isPinned) View.VISIBLE else View.GONE
         holder.txt_CategoryName.text=mList!!.get(position).category.categoryName
 
         val wordListIsEmpty= mList!!.get(position).wordList.size==0
+        if(!wordListIsEmpty){
 
-//        holder.txt_WordList.text=if(wordListIsEmpty) "" else getAllWord(mList!!.get(position).wordList)
+            val list = mList!!.get(position).wordList
+            var s=""
+            for (i in list.indices){
+                s+="${i}. ${list[i].word.word}. ${list[i].userDefinition[1].definition} \n"
+            }
+            holder.txt_WordList.text=s
+        }else{
+            holder.txt_WordList.text=""
+        }
+
 
 
 }
 
-    private fun getAllWord(wordList:List<Word_DefinitionList_Ref>) : String {
-        var s:String=""
-      for (i in wordList.indices){
-          s+= "${i} ."+ wordList.get(i).getWordDetails()+"\n\n"
-      }
-        return s
-    }
+//    private fun getAllWord(wordList:List<UserWord_DefinitionList_Ref>) : String {
+//        var s:String=""
+//      for (i in wordList.indices){
+//          s+= "${i} ."+ wordList.get(i).getWordDetails()+"\n\n"
+//      }
+//        return s
+//    }
+//
+//    fun getWordDetails(defList:List<Definition>, word:String): String {
+//        var example= "";
+//        var j = 0;
+//        for (i in 0 until (defList.size)) {
+//            val tempList = defList.get(i)?.userExample
+//            if (tempList != null) {
+//                example = if (tempList.size > 0) example else ""
+//                if (!example.equals("")) {
+//                    j = i
+//                    break
+//                }
+//            }
+//        }
+//
+//        if(defList[j]!!.isNull){
+//            j++
+//        }
+//        val textDisplay = word+ " " + " : " + defList.get(j)!!.definition
+//
+//
+//        return if (example.equals("")) textDisplay else textDisplay + "\n" + "   - " + example;
+//    }
 
     override fun getItemCount(): Int {
         return if(mList!=null) mList!!.size else 0

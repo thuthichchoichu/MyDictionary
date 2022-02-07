@@ -10,20 +10,20 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @Entity(tableName = "word",indices = [Index(value = ["word"], unique = true)])
-data class Word(
-    val word: String,
-    val wordType: String,
-    val pronUs: String,
-    val pronUk: String,
-    val auUrlUs: String,
-    val auUrlUk: String,
-    val nearByWord: ArrayList<NearByWord>
+open class Word(
+    var word: String="",
+    var wordType: String="",
+    var pronUs: String="",
+    var pronUk: String="",
+    var auUrlUs: String="",
+    var auUrlUk: String="",
+    var nearByWord: ArrayList<NearByWord> = ArrayList()
 ) : Parcelable, BaseObservable() {
     @PrimaryKey
     @ColumnInfo(name = "word_ID")
     var pKey=getPK()
-
     var Category_Id: Int = -1
+    var user_Save=false
 
 
 //    var nearByWords:Int=0
@@ -32,13 +32,12 @@ data class Word(
 //    fun addSeparate(separate:WordTypeSeparate){
 //        separateList.add(separate)
 //    }
-    fun getPK():String{
-        return word+wordType
+    fun getPK()= word+wordType
     }
 
 
 
 
 
-}
+
 

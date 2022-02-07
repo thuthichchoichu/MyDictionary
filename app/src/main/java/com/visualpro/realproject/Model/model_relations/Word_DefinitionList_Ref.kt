@@ -23,24 +23,25 @@ data class Word_DefinitionList_Ref(
     )
     var separate:List<WordTypeSeparate>
 ) : Parcelable {
-    fun getWordDetails(): String {
-        var example= "";
-        var j = 0;
-        for (i in 0 until (defList.size)) {
-            val tempList = defList.get(i)?.userExample
-            if (tempList != null) {
-                example = if (tempList.size > 0) example else ""
-                if (!example.equals("")) {
-                    j = i
-                    break
-                }
-            }
-        }
 
+//    fun getWordDetails(): String {
+//        var example= "";
+//        var j = 0;
+//        for (i in 0 until (defList.size)) {
+//            val tempList = defList.get(i)?.userExample
+//            if (tempList != null) {
+//                example = if (tempList.size > 0) example else ""
+//                if (!example.equals("")) {
+//                    j = i
+//                    break
+//                }
+//            }
+//        }
 
-        val textDisplay = word.word + " " + " : " + defList.get(j)!!.definition
-
-
-        return if (example.equals("")) textDisplay else textDisplay + "\n" + "   - " + example;
+//
+//        val textDisplay = word.word + " " + " : " + defList.get(j)!!.definition
+//
+//
+//        return if (example.equals("")) textDisplay else textDisplay + "\n" + "   - " + example;
     }
-}
+//}

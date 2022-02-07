@@ -26,7 +26,7 @@ class SaveWordDialog(val word: String? = "", val list: List<String>, var save: d
         text=view.findViewById(R.id.txt2)
 
         val spinnerAdapter = ArrayAdapter(
-            activity!!.applicationContext,
+            requireActivity().applicationContext,
             android.R.layout.simple_spinner_item,
             list
         )

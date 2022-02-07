@@ -6,15 +6,18 @@ import com.google.gson.reflect.TypeToken
 import com.visualpro.myapplication.Model.Definition
 import com.visualpro.myapplication.Model.NearByWord
 import com.visualpro.myapplication.Model.Word
+import com.visualpro.realproject.Model.Example
 
 class WordConverter{
+
+
     @TypeConverter
-    fun userExampleToString(values:String?):java.util.ArrayList<String>{
-        val listType= object : TypeToken<java.util.ArrayList<String>>(){}.type
+    fun userExampleToString(values:String?):java.util.ArrayList<Example>{
+        val listType= object : TypeToken<java.util.ArrayList<Example>>(){}.type
         return Gson().fromJson(values,listType)
     }
     @TypeConverter
-    fun stringToUserEx(nbw:java.util.ArrayList<String>):String{
+    fun stringToUserEx(nbw:java.util.ArrayList<Example>):String{
         return Gson().toJson(nbw)
     }
 
