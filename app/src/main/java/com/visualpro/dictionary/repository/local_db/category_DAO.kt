@@ -1,4 +1,4 @@
-package com.visualpro.dictionary.repositories.network.local_db
+package com.visualpro.dictionary.repository.network.local_db
 
 import androidx.room.Dao
 import androidx.room.Insert

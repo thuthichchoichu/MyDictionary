@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.visualpro.dictionary.TapToTranslateService
 import com.visualpro.dictionary.model.TranslateItems
-import com.visualpro.dictionary.repositories.Repository
+import com.visualpro.dictionary.repository.Repository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.InternalCoroutinesApi

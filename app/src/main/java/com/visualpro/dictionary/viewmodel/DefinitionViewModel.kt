@@ -12,8 +12,8 @@ import com.visualpro.myapplication.Model.Word
 import com.visualpro.dictionary.model.RecentItem
 import com.visualpro.dictionary.model.WordTypeSeparate
 import com.visualpro.dictionary.model.model_relations.Word_DefinitionList_Ref
-import com.visualpro.dictionary.repositories.Repository
-import com.visualpro.dictionary.repositories.network.submodel.SearchText
+import com.visualpro.dictionary.repository.Repository
+import com.visualpro.dictionary.repository.network.submodel.SearchText
 
 class DefinitionViewModel(val mRepo: Repository, path: String) : ViewModel(), Observable {
     init {

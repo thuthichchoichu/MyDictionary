@@ -18,7 +18,7 @@ import com.visualpro.dictionary.adapter.AdapterInterfaces.onItemRecyclerViewCkic
 import com.visualpro.dictionary.adapter.DefinitionAdapter
 import com.visualpro.dictionary.adapter.NearByWordAdapter
 import com.visualpro.dictionary.databinding.DefinitionFragmentBinding
-import com.visualpro.dictionary.interfaces.onRequestSaveCurrentWord
+import com.visualpro.dictionary._interface.onRequestSaveCurrentWord
 import com.visualpro.dictionary.model.WordTypeSeparate
 import com.visualpro.dictionary.ui.MainActivity2
 import com.visualpro.dictionary.ui.views_custom.AddToFavoriteDialog

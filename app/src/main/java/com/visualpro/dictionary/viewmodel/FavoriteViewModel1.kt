@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import com.visualpro.dictionary.model.model_relations.Category_WordList_Ref
-import com.visualpro.dictionary.repositories.Repository
+import com.visualpro.dictionary.repository.Repository
 
 class FavoriteViewModel1(private val mRepo: Repository): ViewModel(){
     var     categoryData: LiveData<List<Category_WordList_Ref>> = mRepo.categoryData.asLiveData()

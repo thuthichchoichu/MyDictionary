@@ -1,6 +1,6 @@
-package com.visualpro.dictionary.interfaces
+package com.visualpro.dictionary._interface
 
-import com.visualpro.dictionary.repositories.network.submodel.SearchItemResponse
+import com.visualpro.dictionary.repository.network.submodel.SearchItemResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

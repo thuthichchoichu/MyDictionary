@@ -1,4 +1,4 @@
-package com.visualpro.dictionary.interfaces
+package com.visualpro.dictionary._interface
 
 import com.visualpro.dictionary.model.TranslateItems
 import retrofit2.http.GET

@@ -1,4 +1,4 @@
-package com.visualpro.dictionary.repositories
+package com.visualpro.dictionary.repository
 
 import android.content.SharedPreferences
 import android.media.SoundPool
@@ -9,14 +9,14 @@ import com.visualpro.myapplication.Model.Definition
 import com.visualpro.myapplication.Model.Word
 import com.visualpro.dictionary.R
 import com.visualpro.dictionary.TapToTranslateService
-import com.visualpro.dictionary.interfaces.CallbackSoundLoaded
-import com.visualpro.dictionary.interfaces.Ox_SearchService
+import com.visualpro.dictionary._interface.CallbackSoundLoaded
+import com.visualpro.dictionary._interface.Ox_SearchService
 import com.visualpro.dictionary.model.*
 import com.visualpro.dictionary.model.model_relations.UserWord_DefinitionList_Ref
 import com.visualpro.dictionary.model.model_relations.Word_DefinitionList_Ref
-import com.visualpro.dictionary.repositories.network.Api_Configs.Companion.BASE_URL
-import com.visualpro.dictionary.repositories.network.local_db.User_DAO
-import com.visualpro.dictionary.repositories.network.submodel.SearchText
+import com.visualpro.dictionary.repository.network.Api_Configs.Companion.BASE_URL
+import com.visualpro.dictionary.repository.network.local_db.User_DAO
+import com.visualpro.dictionary.repository.network.submodel.SearchText
 import com.visualpro.dictionary.ui.MainActivity2.Companion.SOUND_TEMPORARY_UK
 import com.visualpro.dictionary.ui.MainActivity2.Companion.SOUND_TEMPORARY_US
 import kotlinx.coroutines.CoroutineScope

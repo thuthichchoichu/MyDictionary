@@ -1,4 +1,4 @@
-package com.visualpro.dictionary.interfaces
+package com.visualpro.dictionary._interface
 
 interface CallbackSoundLoaded {
     fun onSoundLoadComplete(soundType:String)

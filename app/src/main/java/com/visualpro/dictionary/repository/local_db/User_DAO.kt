@@ -1,15 +1,15 @@
-package com.visualpro.dictionary.repositories.network.local_db
+package com.visualpro.dictionary.repository.network.local_db
 
 import androidx.room.*
-import com.visualpro.myapplication.Model.Category
-import com.visualpro.myapplication.Model.Definition
-import com.visualpro.myapplication.Model.Word
 import com.visualpro.dictionary.model.DailyWord
 import com.visualpro.dictionary.model.RecentItem
 import com.visualpro.dictionary.model.WordTypeSeparate
 import com.visualpro.dictionary.model.model_relations.Category_WordList_Ref
 import com.visualpro.dictionary.model.model_relations.UserWord_DefinitionList_Ref
 import com.visualpro.dictionary.model.model_relations.Word_DefinitionList_Ref
+import com.visualpro.myapplication.Model.Category
+import com.visualpro.myapplication.Model.Definition
+import com.visualpro.myapplication.Model.Word
 import kotlinx.coroutines.flow.Flow
 
 

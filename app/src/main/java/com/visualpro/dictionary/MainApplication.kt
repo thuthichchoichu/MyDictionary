@@ -1,8 +1,8 @@
 package com.visualpro.dictionary
 
 import android.app.Application
-import com.visualpro.dictionary.repositories.Repository
-import com.visualpro.dictionary.repositories.network.local_db.Category_DB
+import com.visualpro.dictionary.repository.Repository
+import com.visualpro.dictionary.repository.network.local_db.Category_DB
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 

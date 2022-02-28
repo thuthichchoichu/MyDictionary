@@ -10,8 +10,8 @@ import com.visualpro.dictionary.R
 import com.visualpro.dictionary.TimerWatch
 import com.visualpro.dictionary.adapter.BottomNavigationAdpater
 import com.visualpro.dictionary.databinding.ActivityMain222Binding
-import com.visualpro.dictionary.interfaces.CreateCategoryWithName
-import com.visualpro.dictionary.interfaces.onRequestSaveCurrentWord
+import com.visualpro.dictionary._interface.CreateCategoryWithName
+import com.visualpro.dictionary._interface.onRequestSaveCurrentWord
 import com.visualpro.dictionary.viewmodel.MainActivityViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

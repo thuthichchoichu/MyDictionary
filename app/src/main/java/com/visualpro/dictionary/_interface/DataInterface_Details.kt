@@ -1,4 +1,4 @@
-package com.visualpro.dictionary.interfaces
+package com.visualpro.dictionary._interface
 
 import com.visualpro.dictionary.model.model_relations.UserWord_DefinitionList_Ref
 

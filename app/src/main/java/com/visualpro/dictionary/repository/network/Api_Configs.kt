@@ -1,4 +1,4 @@
-package com.visualpro.dictionary.repositories.network
+package com.visualpro.dictionary.repository.network
 
 class Api_Configs {
     companion object {

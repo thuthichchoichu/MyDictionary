@@ -18,7 +18,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.visualpro.dictionary.R
 import com.visualpro.dictionary.adapter.SelectLanguageAdapter
 import com.visualpro.dictionary.databinding.BottomSelectLanguageBinding
-import com.visualpro.dictionary.interfaces.AdapterSelectCallBack
+import com.visualpro.dictionary._interface.AdapterSelectCallBack
 import com.visualpro.dictionary.ui.views_custom.RecyclerViewDisable
 import com.visualpro.dictionary.viewmodel.GGTranslateViewModel
 

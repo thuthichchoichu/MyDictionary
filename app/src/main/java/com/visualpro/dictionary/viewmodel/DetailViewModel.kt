@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.visualpro.dictionary.model.User.WordWithDefinitions
-import com.visualpro.dictionary.repositories.Repository
+import com.visualpro.dictionary.repository.Repository
 
 class DetailViewModel(val mRepo: Repository) : ViewModel(){
 

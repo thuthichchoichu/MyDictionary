@@ -1,8 +1,8 @@
-package com.visualpro.dictionary.repositories
+package com.visualpro.dictionary.repository
 
+import com.visualpro.dictionary.model.Example
 import com.visualpro.myapplication.Model.Definition
 import com.visualpro.myapplication.Model.NearByWord
-import com.visualpro.dictionary.model.Example
 import org.jsoup.nodes.Element
 import org.jsoup.select.Elements
 

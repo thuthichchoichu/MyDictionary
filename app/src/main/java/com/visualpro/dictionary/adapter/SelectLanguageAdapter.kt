@@ -10,7 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.visualpro.dictionary.R
-import com.visualpro.dictionary.interfaces.AdapterSelectCallBack
+import com.visualpro.dictionary._interface.AdapterSelectCallBack
 
 class SelectLanguageAdapter(var context: Context, var indexItemSelected: Int, var callBack: AdapterSelectCallBack) : RecyclerView.Adapter<SelectLanguageAdapter.Holder>(), Filterable {
     var mList2: ArrayList<LanguageItem>? = null

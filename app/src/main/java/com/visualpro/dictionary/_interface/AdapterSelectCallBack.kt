@@ -1,4 +1,4 @@
-package com.visualpro.dictionary.interfaces
+package com.visualpro.dictionary._interface
 
 interface AdapterSelectCallBack {
     fun languageSelect(position:Int,)

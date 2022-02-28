@@ -7,12 +7,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.visualpro.myapplication.Model.Category
 import com.visualpro.myapplication.Model.Definition
 import com.visualpro.myapplication.Model.Word
-import com.visualpro.dictionary.interfaces.CallbackSoundLoaded
+import com.visualpro.dictionary._interface.CallbackSoundLoaded
 import com.visualpro.dictionary.model.RecentItem
 import com.visualpro.dictionary.model.WordTypeSeparate
 import com.visualpro.dictionary.model.model_relations.Word_DefinitionList_Ref
-import com.visualpro.dictionary.repositories.Repository
-import com.visualpro.dictionary.repositories.network.submodel.SearchText
+import com.visualpro.dictionary.repository.Repository
+import com.visualpro.dictionary.repository.network.submodel.SearchText
 
 class MainActivityViewModel(private val mRepo: Repository, path: String) : ViewModel(),
     CallbackSoundLoaded {

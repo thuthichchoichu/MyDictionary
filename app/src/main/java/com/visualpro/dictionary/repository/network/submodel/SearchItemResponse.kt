@@ -1,4 +1,4 @@
-package com.visualpro.dictionary.repositories.network.submodel
+package com.visualpro.dictionary.repository.network.submodel
 
 import com.google.gson.annotations.SerializedName
 

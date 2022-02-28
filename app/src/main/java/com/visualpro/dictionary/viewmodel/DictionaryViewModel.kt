@@ -3,7 +3,7 @@ package com.visualpro.dictionary.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
-import com.visualpro.dictionary.repositories.Repository
+import com.visualpro.dictionary.repository.Repository
 
 
 class DictionaryViewModel(private var mRepo: Repository) : ViewModel(){

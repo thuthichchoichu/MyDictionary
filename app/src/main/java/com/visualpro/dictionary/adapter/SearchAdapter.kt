@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.visualpro.dictionary.R
 import com.visualpro.dictionary.adapter.SearchAdapter.SearchItemHolder
-import com.visualpro.dictionary.repositories.network.submodel.SearchText
+import com.visualpro.dictionary.repository.network.submodel.SearchText
 
 class SearchAdapter : RecyclerView.Adapter<SearchItemHolder>() {
 
