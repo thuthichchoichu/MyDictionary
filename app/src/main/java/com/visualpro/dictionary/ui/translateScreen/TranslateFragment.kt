@@ -226,7 +226,6 @@ class TranslateFragment : Fragment() {
             val mBinder = p1 as TapToTranslateService.mBinder
             mService = mBinder.getInstance()
             viewModel.setServiceInstance(mService)
-            Log.d("test", "onServiceConnected: ")
             isBound = true
         }
 

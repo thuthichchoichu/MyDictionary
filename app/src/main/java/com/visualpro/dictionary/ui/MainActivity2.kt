@@ -62,12 +62,12 @@ class MainActivity2 : AppCompatActivity(), CreateCategoryWithName {
 
 
         binding.fragmentContainer.setUserInputEnabled(false);
-        val lis=binding.bottomNavigationView.tabs[3]
-        binding.bottomNavigationView.removeTabAt(3)
-        CoroutineScope(Dispatchers.Main).launch{
-            delay(3000)
-            binding.bottomNavigationView.addTab(lis)
-        }
+//        val lis=binding.bottomNavigationView.tabs[3]
+//        binding.bottomNavigationView.removeTabAt(3)
+//        CoroutineScope(Dispatchers.Main).launch{
+//            delay(3000)
+//            binding.bottomNavigationView.addTab(lis)
+//        }
         binding.bottomNavigationView.setOnTabSelectListener(object :
             AnimatedBottomBar.OnTabSelectListener {
             override fun onTabSelected(

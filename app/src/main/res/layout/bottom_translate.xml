@@ -23,6 +23,7 @@
 
 
         <com.google.android.material.tabs.TabLayout
+            android:visibility="gone"
             app:tabPaddingBottom="-1dp"
             app:tabPaddingEnd="-1dp"
             app:tabPaddingStart="-1dp"

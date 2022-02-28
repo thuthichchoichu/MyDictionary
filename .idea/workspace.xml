@@ -15,34 +15,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="760aea9a-1138-4e76-8e27-4e999aa7a281" name="Default Changelist" comment="backup 7/2/2022">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/repositories/local_db/Category_DB.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/repositories/local_db/DataBaseHelper.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/repositories/local_db/User_DAO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/repositories/local_db/WordConverter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/repositories/local_db/category_DAO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/adapter/SelectLanguageAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/adapter/SelectLanguageAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/interfaces/AdapterSelectCallBack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/_interface/AdapterSelectCallBack.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/interfaces/CallbackSoundLoaded.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/_interface/CallbackSoundLoaded.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/interfaces/CreateCategoryWithName.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/_interface/CreateCategoryWithName.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/interfaces/DataInterface_Details.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/_interface/DataInterface_Details.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/interfaces/DictionaryInterface.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/_interface/DictionaryInterface.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/interfaces/Gg_TranslateService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/_interface/Gg_TranslateService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/interfaces/Ox_SearchService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/_interface/Ox_SearchService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/interfaces/ReceiveTranslateRespond.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/_interface/ReceiveTranslateRespond.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/interfaces/onRequestSaveCurrentWord.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/_interface/onRequestSaveCurrentWord.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/interfaces/onTextInputSubmit.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/_interface/onTextInputSubmit.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/repositories/Repository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/repositories/Repository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/ui/MainActivity2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/ui/MainActivity2.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/ui/definition_screen/DefinitionFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/ui/definition_screen/DefinitionFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/ui/translateScreen/BottomSelectLanguageFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/ui/translateScreen/BottomSelectLanguageFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/viewmodel/MainActivityViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/viewmodel/MainActivityViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/ui/float_translate/FloatTranslate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/ui/float_translate/FloatTranslate.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/ui/translateScreen/TranslateFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/ui/translateScreen/TranslateFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main222.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main222.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/g_g__translate_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/g_g__translate_fragment.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -439,7 +419,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/ui/translateScreen/TranslateFragment.kt</url>
-          <line>264</line>
+          <line>263</line>
           <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
@@ -450,16 +430,11 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/ui/translateScreen/TranslateFragment.kt</url>
           <line>228</line>
-          <option name="timeStamp" value="108" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/ui/translateScreen/TranslateFragment.kt</url>
-          <line>229</line>
           <option name="timeStamp" value="109" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/visualpro/dictionary/ui/translateScreen/TranslateFragment.kt</url>
-          <line>328</line>
+          <line>327</line>
           <option name="timeStamp" value="110" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-function">

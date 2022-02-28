@@ -16,7 +16,6 @@ import com.visualpro.dictionary.TapToTranslateService
 import com.visualpro.dictionary.TapToTranslateService.Companion.DATA_CLIPBOARD
 import com.visualpro.dictionary.TapToTranslateService.Companion.SHOW_FLOAT_ICON
 import com.visualpro.dictionary.databinding.ActivityFloatTranslateBinding
-import com.visualpro.dictionary.ui.MainActivity2
 import com.visualpro.dictionary.viewmodel.GGTranslateViewModel
 
 
@@ -49,7 +48,8 @@ class FloatTranslate : AppCompatActivity() {
         binding = ActivityFloatTranslateBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnCopyFloat.setOnClickListener {
-            Intent(this, MainActivity2::class.java).apply {
+            Toast.makeText(this@FloatTranslate,"Copied", Toast.LENGTH_SHORT).show()
+            Intent(this, TapToTranslateService::class.java).apply {
                 putExtra(ACTION_COPY, binding.edtTranslate.text.toString())
                 startService(this)
             }
@@ -76,7 +76,13 @@ class FloatTranslate : AppCompatActivity() {
         var intent = intent
         onNewIntent(intent)
 
-        binding.spinnerLanguage.setText(mViewModel.getLanguageInput())
+
+        if(mViewModel.languageDetetectEnable.value==true){
+            binding.spinnerLanguage.setText("Auto detect")
+        }else{
+            binding.spinnerLanguage.setText(mViewModel.getLanguageInput())
+        }
+
         binding.button.setOnClickListener {
             binding.progressbar2.showNow()
 

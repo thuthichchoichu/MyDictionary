@@ -20,7 +20,7 @@
 
             app:cardCornerRadius="5dp"
             app:layout_constraintBottom_toTopOf="@+id/recoder"
-            app:layout_constraintTop_toTopOf="@+id/text_Output"
+            app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="20dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -143,14 +143,27 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
+                        <TextView
+                            android:id="@+id/text_Output"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="25dp"
+                            android:textColor="@color/textColor"
+                            android:textColorHint="@color/textColor"
+                            android:textSize="16sp"
+                            android:visibility="visible"
+                            tools:layout_editor_absoluteX="17dp"
+                            tools:layout_editor_absoluteY="147dp" />
+                        />
+
                         <com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar
                             android:id="@+id/progress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="25dp"
-                            android:color="@color/lightblue"
+                            android:color="@color/orange2"
                             android:radius="5dp"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             app:dd_animationDuration="500"
                             app:dd_horizontalSpacing="4dp"
                             app:dd_numDots="3"
@@ -295,19 +308,7 @@
 
         </LinearLayout>
 
-        <TextView
-            android:text="đâsdasdasdsadasd"
-            android:id="@+id/text_Output"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="25dp"
-            android:textColor="@color/textColor"
-            android:textColorHint="@color/textColor"
-            android:textSize="16sp"
-            android:visibility="gone"
-            tools:layout_editor_absoluteX="17dp"
-            tools:layout_editor_absoluteY="147dp" />
-        />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
