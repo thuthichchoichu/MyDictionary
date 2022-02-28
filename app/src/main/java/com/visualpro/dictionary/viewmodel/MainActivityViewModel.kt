@@ -4,24 +4,22 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.visualpro.myapplication.Model.Category
-import com.visualpro.myapplication.Model.Definition
-import com.visualpro.myapplication.Model.Word
 import com.visualpro.dictionary._interface.CallbackSoundLoaded
 import com.visualpro.dictionary.model.RecentItem
 import com.visualpro.dictionary.model.WordTypeSeparate
 import com.visualpro.dictionary.model.model_relations.Word_DefinitionList_Ref
 import com.visualpro.dictionary.repository.Repository
 import com.visualpro.dictionary.repository.network.submodel.SearchText
+import com.visualpro.myapplication.Model.Category
+import com.visualpro.myapplication.Model.Definition
+import com.visualpro.myapplication.Model.Word
 
-class MainActivityViewModel(private val mRepo: Repository, path: String) : ViewModel(),
+class MainActivityViewModel( val mRepo: Repository, path: String) : ViewModel(),
     CallbackSoundLoaded {
     init {
         mRepo.localFilePath = path
         mRepo.soundCallBack = this
     }
-
-    //    var mListCategoryName = mRepo.listCategoryName
     var mWordTypeSeparate = MutableLiveData<List<WordTypeSeparate>>()
 
     fun getListCategoryName(callback:(List<String>) ->Unit){
@@ -32,19 +30,6 @@ class MainActivityViewModel(private val mRepo: Repository, path: String) : ViewM
 
     fun getWord(): Word? {
         return mDefinition.value?.word
-    }
-
-    fun getWordType(): String {
-        var wordTpe = "["
-        if (mWordTypeSeparate.value != null) for (i in mWordTypeSeparate.value!!.indices) {
-            wordTpe += mWordTypeSeparate.value!!.get(i).wordType
-            if (mWordTypeSeparate.value!!.size - i > 1) {
-                wordTpe += ", "
-
-            }
-
-        }
-        return wordTpe + "]"
     }
 
     private var _currentDisplayWordIsFavorite = MutableLiveData(false)
@@ -69,9 +54,9 @@ class MainActivityViewModel(private val mRepo: Repository, path: String) : ViewM
 
     var isSoundUsLoaded = false
     var isSoundUkLoaded = false
-    fun playSoundUs() = mRepo.playSoundUs(mDefinition.value?.word!!.auUrlUs)
-    fun playSoundUk() = mRepo.playSoundUk(mDefinition.value?.word!!.auUrlUk)
-
+    fun playSoundUs() = mRepo.playSoundUs(mDefinition.value?.word?.auUrlUs)
+    fun playSoundUk() = mRepo.playSoundUk(mDefinition.value?.word?.auUrlUk)
+    fun playDailyWordSound(word: String?)=mRepo.playSoundByWordName(word)
     var mDefinition = MutableLiveData<Word_DefinitionList_Ref>().apply {
         mRepo.retrieveLastestQueryWord {
             value = it
@@ -80,7 +65,7 @@ class MainActivityViewModel(private val mRepo: Repository, path: String) : ViewM
         }
     }
 
-    fun getWordFromServer(word: String?, url: String, useUrl: Boolean) {
+    fun getWordFromServer(word: String, url: String, useUrl: Boolean) {
         addWordToRecent(RecentItem(word!!, true))
         mRepo.loadWord(word, url, useUrl, true) {
             _currentDisplayWordIsFavorite.value = it?.word!!.userSave

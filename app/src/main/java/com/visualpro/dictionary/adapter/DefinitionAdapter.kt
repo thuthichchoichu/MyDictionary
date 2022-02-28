@@ -10,12 +10,12 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.visualpro.myapplication.Model.Definition
 import com.visualpro.dictionary.R
 import com.visualpro.dictionary.model.Example
 import com.visualpro.dictionary.model.WordTypeSeparate
 import com.visualpro.dictionary.ui.views_custom.RecyclerViewAnimation
 import com.visualpro.dictionary.views.views_custom.Animation
+import com.visualpro.myapplication.Model.Definition
 
 class DefinitionAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val TEXT = 0
@@ -100,10 +100,8 @@ class DefinitionAdapter(val context: Context) : RecyclerView.Adapter<RecyclerVie
             }
             DEFINITION -> {
                 (holder as DefinitionHolder).itemView.setOnClickListener {
-                    var show = mList.get(position)?.let { it1 ->
-                        toggleLayout(
-                            it1.expand, holder.img_Expand, holder.layoutExpand
-                        )
+                 mList.get(position)?.let { it1 ->
+                        toggleLayout(it1.expand, holder.img_Expand, holder.layoutExpand)
                     }
 
                     mList.get(position)?.reverseExpand()

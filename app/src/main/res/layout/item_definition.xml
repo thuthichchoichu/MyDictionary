@@ -67,7 +67,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/rcv_itemExample"
-            android:animateLayoutChanges="true"
             android:visibility="visible">
             <!-- This is edit text i need to get coordinates-->
             <EditText

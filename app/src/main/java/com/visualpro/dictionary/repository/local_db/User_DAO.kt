@@ -100,5 +100,13 @@ interface User_DAO {
     @Query("UPDATE category SET color=:color WHERE categoryName=:categoryName")
     fun updateCategoryColor(categoryName: String, color: Int)
 
+    @Query("SELECT auUrlUk FROM word WHERE word =:wordName")
+    fun getAudioLinkByWordName(wordName: String?):String
+
+    @Query("UPDATE CATEGORY SET lastEdit =:lastEdit WHERE categoryName=:categoryName ")
+    fun setCurrentTime(categoryName: String, lastEdit:String) {
+
+    }
+
 
 }

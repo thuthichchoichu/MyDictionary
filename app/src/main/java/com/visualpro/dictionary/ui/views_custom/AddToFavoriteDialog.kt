@@ -14,7 +14,6 @@ import com.visualpro.dictionary.ui.definition_screen.DefinitionFragment
 
 
 class AddToFavoriteDialog(var listCategory: List<String>, var name: String) : DialogFragment() {
-    var isShowing = false
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = MaterialAlertDialogBuilder(requireParentFragment().requireActivity(), R.style.NormalDialogTheme)
         val view: View =layoutInflater.inflate(R.layout.saveword,null)

@@ -14,11 +14,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.visualpro.dictionary.R
+import com.visualpro.dictionary._interface.onRequestSaveCurrentWord
 import com.visualpro.dictionary.adapter.AdapterInterfaces.onItemRecyclerViewCkick
 import com.visualpro.dictionary.adapter.DefinitionAdapter
 import com.visualpro.dictionary.adapter.NearByWordAdapter
 import com.visualpro.dictionary.databinding.DefinitionFragmentBinding
-import com.visualpro.dictionary._interface.onRequestSaveCurrentWord
 import com.visualpro.dictionary.model.WordTypeSeparate
 import com.visualpro.dictionary.ui.MainActivity2
 import com.visualpro.dictionary.ui.views_custom.AddToFavoriteDialog
@@ -54,7 +54,7 @@ class DefinitionFragment : Fragment(), onItemRecyclerViewCkick, onRequestSaveCur
     }
 
 
-   fun saveCurrentOpeningWord(categoryName: String) {
+    fun saveCurrentOpeningWord(categoryName: String) {
         mViewModel.saveWordToDb(categoryName)
     }
 
@@ -81,7 +81,7 @@ class DefinitionFragment : Fragment(), onItemRecyclerViewCkick, onRequestSaveCur
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.reCyclerViewList.itemAnimator = null
         mDefinitionAdapter = DefinitionAdapter(requireContext())
-        mDefinitionAdapter.callBack={
+        mDefinitionAdapter.callBack = {
 
             mViewModel.setUserDefinition(it)
         }
@@ -106,9 +106,9 @@ class DefinitionFragment : Fragment(), onItemRecyclerViewCkick, onRequestSaveCur
 
         })
         mViewModel.currentDisplayWordIsFavorite.observe(viewLifecycleOwner, {
-            if(it){
+            if (it) {
                 binding.btnSave2.setImageResource(R.drawable.aic_favorite_small)
-            }else{
+            } else {
                 binding.btnSave2.setImageResource(R.drawable.aic_unfavorite_small)
             }
         })
@@ -126,39 +126,114 @@ class DefinitionFragment : Fragment(), onItemRecyclerViewCkick, onRequestSaveCur
         binding.txtWordType.text = text
     }
 
+//    var touching=false
+//    var y=0
+//    var preY=0
+//    fun crossHideAnimation() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            binding.reCyclerViewList.setOnTouchListener(View.OnTouchListener { view, motionEvent ->
+////                Log.d("test", "crossHideAnimation: ${motionEvent.y}  ${motionEvent.rawX}")
+//
+//                if(motionEvent.action==MotionEvent.ACTION_UP){
+//                    touching=false
+//                    //user leave touch
+//                }else if(motionEvent.action==MotionEvent.ACTION_MOVE){
+//
+//                    //user begin touch
+//                }
+//
+////                motionEvent.rawX.log("rawX")
+//                motionEvent.rawY.log("rawY")
+//                motionEvent.action==MotionEvent.ACTION_MOVE.log("move")
+//                if(motionEvent.action==MotionEvent.ACTION_DOWN){
+//
+//                }
+//
+//                return@OnTouchListener false
+//            }
+//
+//            )
+//            binding.reCyclerViewList.setOnScrollChangeListener { view, i, i2, i3, i4 ->
+//
+////                Log.d("test", "crossHideAnimation: ${view.x} : $i4")
+//
+//            }
+//        }
+//    }
+
+//    fun onTouchEvent(event: MotionEvent): Boolean {
+//        val y = event.y.toInt()
+//        when (event.action) {
+//            MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE, MotionEvent.ACTION_UP -> {}
+//        }
+//        return false
+//    }
+//    fun xxxxxxx(){
+//        val file = File(requireContext().filesDir.toString()+"/list.txt")
+//        val lines= getFileContent(file.inputStream()).split(System.getProperty("line.separator"))
+//
+//        CoroutineScope(IO).launch {
+//            for (i in 0..10){
+//                delay(1000)
+//                Log.d("test", "xxxxxxx: ${lines[i].lowercase().trim()}")
+//                mViewModel.getWordFromServer(lines[i].lowercase().trim(), "", false)
+//            }
+//        }
+//
+//
+//    }
+
+    //    fun getFileContent(fis: FileInputStream): String {
+//        BufferedReader(InputStreamReader(fis, "utf-8")).use { br ->
+//            val sb = StringBuilder()
+//            var line: String?
+//            while (br.readLine().also { line = it } != null) {
+//                sb.append(line)
+//                sb.append('\n')
+//            }
+//            return sb.toString()
+//        }
+//    }
     private fun initListeners() {
-        binding.speakerUK.setOnClickListener{
+        binding.speakerUK.setOnClickListener {
+//            xxxxxxx()
             mViewModel.playSoundUk()
-            if(mViewModel.soundUkLoadState.value==false){
+            if (mViewModel.soundUkLoadState.value == false) {
 //                binding.progress.showNow()
             }
         }
         binding.speakerUS.setOnClickListener {
             mViewModel.playSoundUs()
-            if(mViewModel.soundUsLoadState.value==false){
+            if (mViewModel.soundUsLoadState.value == false) {
 //
             }
 
         }
-        binding.btnSave2.setOnClickListener{
+        binding.btnSave2.setOnClickListener {
             val name = mViewModel.getWord()?.word
             mViewModel.getListCategoryName {
-                if(it.size==0){
-                     MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme)
-                        .setTitle("No category found")
-                        .setMessage("Create now?")
-                        .setPositiveButton("Ok", object : DialogInterface.OnClickListener{
+                if (it.size == 0) {
+                    MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme).setTitle(
+                            "No category found"
+                        ).setMessage("Create now?")
+                        .setPositiveButton("Ok", object : DialogInterface.OnClickListener {
                             override fun onClick(p0: DialogInterface?, p1: Int) {
-                                (requireActivity() as MainActivity2).binding.bottomNavigationView.selectTabAt(2,true)
+                                (requireActivity() as MainActivity2).binding.bottomNavigationView.selectTabAt(
+                                    2,
+                                    true
+                                )
+                                (requireActivity() as MainActivity2).showFavFragmentDisplayCreateCategoryDialog()
                             }
 
-                        })
-                        .setNegativeButton("Cancel", /* listener = */ null)
-                        .show();
-                }else{
-                    if(name==null){
-                        Toast.makeText(requireContext(), "Nothing here, try searching anything", Toast.LENGTH_SHORT).show()
-                    }else{
+                        }).setNegativeButton("Cancel", /* listener = */ null).show();
+                } else {
+                    if (name == null) {
+                        Toast.makeText(
+                            requireContext(),
+                            "Nothing here, try searching anything",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
                         AddToFavoriteDialog(it, name).show(childFragmentManager, "S")
                     }
 

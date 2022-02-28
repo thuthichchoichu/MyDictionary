@@ -21,4 +21,7 @@ class BottomNavigationAdpater(fragmentManager: FragmentManager, lifecycle: Lifec
             else ->return DefinitionFragment()
         }
     }
+
+
 }
+

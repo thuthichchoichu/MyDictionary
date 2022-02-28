@@ -4,21 +4,21 @@ import android.content.SharedPreferences
 import android.media.SoundPool
 import android.util.Log
 import com.google.gson.GsonBuilder
-import com.visualpro.myapplication.Model.Category
-import com.visualpro.myapplication.Model.Definition
-import com.visualpro.myapplication.Model.Word
 import com.visualpro.dictionary.R
 import com.visualpro.dictionary.TapToTranslateService
 import com.visualpro.dictionary._interface.CallbackSoundLoaded
 import com.visualpro.dictionary._interface.Ox_SearchService
 import com.visualpro.dictionary.model.*
-import com.visualpro.dictionary.model.model_relations.UserWord_DefinitionList_Ref
 import com.visualpro.dictionary.model.model_relations.Word_DefinitionList_Ref
 import com.visualpro.dictionary.repository.network.Api_Configs.Companion.BASE_URL
 import com.visualpro.dictionary.repository.network.local_db.User_DAO
 import com.visualpro.dictionary.repository.network.submodel.SearchText
+import com.visualpro.dictionary.ui.MainActivity2.Companion.SOUND_TEMPORARY_DAILY_WORD
 import com.visualpro.dictionary.ui.MainActivity2.Companion.SOUND_TEMPORARY_UK
 import com.visualpro.dictionary.ui.MainActivity2.Companion.SOUND_TEMPORARY_US
+import com.visualpro.myapplication.Model.Category
+import com.visualpro.myapplication.Model.Definition
+import com.visualpro.myapplication.Model.Word
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
@@ -42,6 +42,7 @@ import kotlinx.coroutines.launch as launch1
 class Repository(private val userDao: User_DAO) : Serializable {
     private var soundUk = -1
     private var soundUs = -1
+    private var soundDailyWord = -1
     var categoryData = userDao.getAllCategory()
     var recentItems = userDao.get6ItemRecent()
 
@@ -217,13 +218,22 @@ class Repository(private val userDao: User_DAO) : Serializable {
         }
     }
 
-    fun loadWord(
-        word: String,
-        url: String,
-        useUrl: Boolean,
-        updateToDefinition: Boolean,
-        callback: ((response: Word_DefinitionList_Ref?) -> Unit)? = null
-    ) {
+
+//    var listWord=HashSet<String>()
+//    var listWord1=HashSet<String>()
+//     fun collect():HashSet<String>{
+//        listWord1.removeAll(listWord)
+//         return listWord1
+////         mCoroutine.launch1 {
+////             listWord1.forEach {
+////                 delay(500)
+////                 loadWord(it, "", false,false)
+////             }
+////         }
+//
+//    }
+
+    fun loadWord(word: String, url: String, useUrl: Boolean, updateToDefinition: Boolean, callback: ((response: Word_DefinitionList_Ref?) -> Unit)? = null) {
         usSoundLoaded = false
         ukSoundLoaded = false
         mCoroutine.launch1 {
@@ -233,16 +243,17 @@ class Repository(private val userDao: User_DAO) : Serializable {
                     withContext(Main) {
                         callback?.invoke(localWord)
                     }
-                } else {
+                }
+                else {
                     val day = SimpleDateFormat("dd.MM.yy", Locale.getDefault()).format(Date())
                     val definition = localWord.defList
                     val dailyWord = DailyWord(day, word, definition[1]!!.definition)
                     userDao.insertDailyWord(dailyWord)
                     setDailyWordLoaded()
-                    Log.d("test", "get daily word ")
                 }
 
             } else {
+
                 val doc: Document?
                 try {
                     doc =
@@ -252,6 +263,7 @@ class Repository(private val userDao: User_DAO) : Serializable {
                     if (doc != null) {
                         val master = doc.selectFirst("div[class=responsive_entry_center_wrap]")
                         if (master != null) {
+
                             val parser = HtmlParseHelper(master)
                             val allNearByWord = async { parser.parseNearByWord() }
                             val audioUrlArray = async { parser.parseSoundUrl_Pron() }
@@ -330,7 +342,8 @@ class Repository(private val userDao: User_DAO) : Serializable {
                                         callback?.invoke(localWord1)
                                     }
 
-                                } else {
+                                }
+                                else {
                                     val day = SimpleDateFormat(
                                         "dd.MM.yy", Locale.getDefault()
                                     ).format(Date())
@@ -383,8 +396,6 @@ class Repository(private val userDao: User_DAO) : Serializable {
     fun playSoundUs(soundLink: String?) {
         if (!usSoundLoaded && !usLoading) {
             downloadSound(soundLink, null)
-
-
         } else if (usSoundLoaded) {
             pool.play(soundUs, 1f, 1f, 1, 0, 1f)
         }
@@ -396,6 +407,23 @@ class Repository(private val userDao: User_DAO) : Serializable {
             downloadSound(null, soundLink)
         } else if (ukSoundLoaded) {
             pool.play(soundUk, 1f, 1f, 1, 0, 1f)
+        }
+
+
+    }
+
+    private var dailyWordSoundLoaded = false
+    private var dailyWordSoundLoading = false
+
+    fun playSoundByWordName(wordName: String?) {
+        if (!dailyWordSoundLoaded && !dailyWordSoundLoading) {
+            mCoroutine.launch1 {
+                downloadDailyWordSound( userDao.getAudioLinkByWordName(wordName))
+            }
+
+
+        } else if (dailyWordSoundLoaded) {
+            pool.play(soundDailyWord, 1f, 1f, 1, 0, 1f)
         }
 
 
@@ -469,6 +497,8 @@ class Repository(private val userDao: User_DAO) : Serializable {
         }
         if (urlUk != null) {
             ukLoading = true
+
+
             mCoroutine.launch1 {
                 var bIn: BufferedInputStream? = null
                 var bOut: BufferedOutputStream? = null
@@ -507,6 +537,7 @@ class Repository(private val userDao: User_DAO) : Serializable {
 
                 } finally {
                     ukLoading = false
+
                     try {
                         if (fOut != null) {
                             fOut!!.close()
@@ -529,6 +560,66 @@ class Repository(private val userDao: User_DAO) : Serializable {
 
     }
 
+    fun downloadDailyWordSound(linkMp3:String){
+        mCoroutine.launch1 {
+            dailyWordSoundLoading=true
+            var bIn: BufferedInputStream? = null
+            var bOut: BufferedOutputStream? = null
+            var fOut: FileOutputStream? = null
+
+            val fiLe = File(localFilePath + "/" + SOUND_TEMPORARY_DAILY_WORD)
+            if (!fiLe.exists()) {
+                fiLe.createNewFile()
+            }
+            try {
+                fOut = FileOutputStream(fiLe)
+                bIn = BufferedInputStream(URL(linkMp3).openStream())
+                bOut = BufferedOutputStream(fOut, 1024)
+                var buffer = ByteArray(1024)
+                while (true) {
+                    val read = bIn!!.read(buffer, 0, 1024)
+                    if (read == -1) {
+                        break
+                    }
+                    bOut!!.write(buffer, 0, read)
+                }
+//                withContext(Main) {
+//                    soundCallBack!!.onSoundLoadComplete("US")
+//                }
+                soundDailyWord = pool.load(localFilePath + "/" + SOUND_TEMPORARY_DAILY_WORD, 1)
+
+                pool.setOnLoadCompleteListener({ soundPool, i, i2 ->
+                    dailyWordSoundLoaded = true
+                    pool.play(soundDailyWord, 1f, 1f, 1, 0, 1f)
+                })
+
+            } catch (exception: Exception) {
+//                Log.d("test", "downloadSound: ${exception.message}")
+//                withContext(Main) {
+//                    soundCallBack!!.onSoundLoadFail("US")
+//                }
+
+            } finally {
+                dailyWordSoundLoading = false
+
+                try {
+                    if (fOut != null) {
+                        fOut!!.close()
+                    }
+                    if (bOut != null) {
+                        bOut!!.close()
+                    }
+                    if (bIn != null) {
+                        bIn!!.close()
+                    }
+                } catch (ex1: Exception) {
+
+                }
+            }
+
+
+        }
+    }
 
     fun addEmptyCategory(item: Category) {
         mCoroutine.launch1 {
@@ -536,21 +627,14 @@ class Repository(private val userDao: User_DAO) : Serializable {
         }
     }
 
-    fun getWordsByCategory(
-        CategoryName: String, callback: (words: List<UserWord_DefinitionList_Ref>) -> Unit
-    ) {
-        mCoroutine.launch1 {
-            val x = userDao.selectWordsByCategory(CategoryName)
-            withContext(Main) {
-                callback(x)
-            }
-
-        }
-
-    }
 
     fun addWordToCategory(word: Word) {
-        mCoroutine.launch1 { userDao.UserSaveWord(word) }
+        mCoroutine.launch1 {
+            var categoryName=word.belongToCategory
+            userDao.setCurrentTime(categoryName, SimpleDateFormat("dd MMM, yyyy", Locale.getDefault()).format(Date())
+
+            )
+            userDao.UserSaveWord(word) }
     }
 
     fun addWordToRecent(word: RecentItem) {
@@ -641,11 +725,11 @@ class Repository(private val userDao: User_DAO) : Serializable {
 
     fun checkTapTranslateEnable(callback1: (isDone: Boolean) -> Unit) {
         mCoroutine.launch1 {
-            val isDone=sharedPreferences!!.getBoolean(TAP_TO_TRANSLATE_ENABLE, false)
+            val isDone = sharedPreferences!!.getBoolean(TAP_TO_TRANSLATE_ENABLE, false)
             Log.d("test", "checkTapToTranslate1: $isDone")
-                withContext(Main){
-                    callback1(isDone)
-                }
+            withContext(Main) {
+                callback1(isDone)
+            }
 
         }
     }

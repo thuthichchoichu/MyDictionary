@@ -50,16 +50,21 @@ class FavoriteFragment : Fragment(), onItemCategoryClick {
             })
 
         binding!!.fbtnCreate.setOnClickListener{
-            val list=ArrayList<String>()
-            val mList= adapter.mList
-            if(mList!=null){
-                for (i in mList.indices){
-                    list.add(mList[i].category.categoryName)
-                }
-            }
-            AddCategoryDialog(list)
-                .show(childFragmentManager, "")}
+            showCreateDialog()
+         }
         }
+
+     fun showCreateDialog() {
+        val list=ArrayList<String>()
+        val mList= adapter.mList
+        if(mList!=null){
+            for (i in mList.indices){
+                list.add(mList[i].category.categoryName)
+            }
+        }
+        AddCategoryDialog(list)
+            .show(childFragmentManager, "")
+    }
 
     @SuppressLint("NotifyDataSetChanged")
     private fun initAdapter() {

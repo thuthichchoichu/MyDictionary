@@ -16,9 +16,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.visualpro.dictionary.R
+import com.visualpro.dictionary._interface.AdapterSelectCallBack
 import com.visualpro.dictionary.adapter.SelectLanguageAdapter
 import com.visualpro.dictionary.databinding.BottomSelectLanguageBinding
-import com.visualpro.dictionary._interface.AdapterSelectCallBack
 import com.visualpro.dictionary.ui.views_custom.RecyclerViewDisable
 import com.visualpro.dictionary.viewmodel.GGTranslateViewModel
 
@@ -68,7 +68,7 @@ class BottomSelectLanguageFragment() : BottomSheetDialogFragment(), AdapterSelec
     ): View? {
 
         binding = BottomSelectLanguageBinding.inflate(inflater, container, false).apply {
-
+            rcvSelectLanguages.addOnItemTouchListener(disableTouch)
             if (type == TYPE_TRANSLATE_TO) {
                 textView8.visibility = View.GONE
                 cardView.visibility = View.GONE
@@ -96,6 +96,7 @@ class BottomSelectLanguageFragment() : BottomSheetDialogFragment(), AdapterSelec
 
             switchDetect.apply {
                 viewModel!!.languageDetetectEnable.observe(viewLifecycleOwner, {
+                    disableTouch.allowTouch=it
                     isChecked = it
                     if (it && type == TYPE_TRANSLATE_FROM) {
                         setFreezeSelectLanguge(it)
@@ -191,16 +192,16 @@ class BottomSelectLanguageFragment() : BottomSheetDialogFragment(), AdapterSelec
     }
 
     fun setFreezeSelectLanguge(freeze: Boolean) {
+        binding!!.editTextTextPersonName.isEnabled=freeze
         binding!!.apply {
             if (freeze) {
-                edttt.isEnabled = false
-                rcvSelectLanguages.addOnItemTouchListener(disableTouch)
+
                 card1.setCardBackgroundColor(
-                    ContextCompat.getColor(requireContext(), R.color.gray)
+                    ContextCompat.getColor(requireContext(), R.color.backgroundcolor)
                 )
             } else {
-                edttt.isEnabled = true
-                rcvSelectLanguages.removeOnItemTouchListener(disableTouch)
+//                RecyclerViewAnimation.expand(binding!!.editTextTextPersonName)
+
                 card1.setCardBackgroundColor(
                     ContextCompat.getColor(requireContext(), R.color.white)
                 )

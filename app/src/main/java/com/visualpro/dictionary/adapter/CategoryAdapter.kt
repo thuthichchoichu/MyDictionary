@@ -10,10 +10,10 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
-import com.visualpro.myapplication.Model.Category
 import com.visualpro.dictionary.R
 import com.visualpro.dictionary.adapter.AdapterInterfaces.onItemCategoryClick
 import com.visualpro.dictionary.model.model_relations.Category_WordList_Ref
+import com.visualpro.myapplication.Model.Category
 import kotlin.system.measureTimeMillis
 
 class CategoryAdapter(var mList: List<Category_WordList_Ref>?, var context: Context, val onCategoryClick: onItemCategoryClick) : RecyclerView.Adapter<CategoryAdapter.CategoryHolder>() {
@@ -100,8 +100,8 @@ class CategoryAdapter(var mList: List<Category_WordList_Ref>?, var context: Cont
     override fun onBindViewHolder(holder: CategoryHolder, position: Int) {
             var params: ViewGroup.LayoutParams = holder.itemView.layoutParams
             when(mList!!.get(position).getSize()){
-                Category.SMALLEST -> params.height=(parentHight*0.2).toInt()
-                Category.MEDIUM -> params.height=(parentHight*0.35).toInt()
+                Category.SMALLEST -> params.height=(parentHight*0.25).toInt()
+                Category.MEDIUM -> params.height=(parentHight*0.4).toInt()
                 Category.BIGGEST -> params.height=(parentHight*0.5).toInt()
             }
             holder.itemView.layoutParams=params

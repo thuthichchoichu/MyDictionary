@@ -4,20 +4,18 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.visualpro.myapplication.Model.Category
 import com.visualpro.dictionary.MainApplication
 import com.visualpro.dictionary.R
-import com.visualpro.dictionary.TimerWatch
-import com.visualpro.dictionary.adapter.BottomNavigationAdpater
-import com.visualpro.dictionary.databinding.ActivityMain222Binding
 import com.visualpro.dictionary._interface.CreateCategoryWithName
 import com.visualpro.dictionary._interface.onRequestSaveCurrentWord
+import com.visualpro.dictionary.adapter.BottomNavigationAdpater
+import com.visualpro.dictionary.databinding.ActivityMain222Binding
+import com.visualpro.dictionary.ui.favorite_screen.FavoriteFragment
 import com.visualpro.dictionary.viewmodel.MainActivityViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import com.visualpro.myapplication.Model.Category
 import nl.joery.animatedbottombar.AnimatedBottomBar
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MainActivity2 : AppCompatActivity(), CreateCategoryWithName {
@@ -29,6 +27,7 @@ class MainActivity2 : AppCompatActivity(), CreateCategoryWithName {
         const val LAST_EDIT = "lastedit"
         const val SOUND_TEMPORARY_US = "temporary.us"
         const val SOUND_TEMPORARY_UK = "temporary.uk"
+        const val SOUND_TEMPORARY_DAILY_WORD= "dailyword.uk"
     }
 
     var callBackSaveCurrentWord: onRequestSaveCurrentWord? = null
@@ -48,6 +47,7 @@ class MainActivity2 : AppCompatActivity(), CreateCategoryWithName {
         }
 
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_mainActivityTheme)
@@ -88,29 +88,25 @@ class MainActivity2 : AppCompatActivity(), CreateCategoryWithName {
         })
     }
 
-//    override fun onNewIntent(intent: Intent?) {
-//        super.onNewIntent(intent)
-//        intent?.let {
-//            val data = it.getStringExtra(FloatTranslate.NAVIGATION_TO_TRANSLATE_SCREEN)
-//            if (data != null) {
-//                Handler(mainLooper).postDelayed({
-//                    (findChildFragmentByViewPagerPosition(0) as GG_TranslateFragment)
-//                    binding.bottomNavigationView.selectTabAt(0, false)
-//                }, 500)
-//            }
-//        }
-//    }
+     fun showFavFragmentDisplayCreateCategoryDialog(){
+         ( findFragmentAtPosition(2) as FavoriteFragment).showCreateDialog()
+     }
+
+    fun findFragmentAtPosition(position: Int): Fragment? {
+        return supportFragmentManager.findFragmentByTag("f$position")
+    }
 
     private fun setUpViewPager() {
         binding.fragmentContainer.adapter =
             BottomNavigationAdpater(supportFragmentManager, lifecycle)
         binding.fragmentContainer.offscreenPageLimit = 4
+
     }
 
     override fun createMe(categoryName: String) {
         var category = Category().apply {
             this.categoryName = categoryName
-            this.lastEdit = TimerWatch.getTime()
+            this.lastEdit = SimpleDateFormat("dd MMM, yyyy", Locale.getDefault()).format(Date())
 
         }
         mViewModel.addCategory(category)

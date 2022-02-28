@@ -2,7 +2,9 @@ package com.visualpro.dictionary.ui.views_custom
 
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
+import android.view.animation.AnimationSet
 import android.view.animation.Transformation
 
 object RecyclerViewAnimation {
@@ -17,15 +19,20 @@ object RecyclerViewAnimation {
     }
 
     fun expand(view: View) {
-        val animation = expandAction(view)
-        view.startAnimation(animation)
+      expandAction(view)
+
     }
 
-    private fun expandAction(view: View): Animation {
+    private fun expandAction(view: View) {
         view.measure(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         val actualheight = view.measuredHeight
         view.layoutParams.height = 0
-        view.visibility = View.VISIBLE
+//        view.invalidate()
+//        view.visibility = View.VISIBLE
+//        Handler(Looper.getMainLooper()).postDelayed({
+//            view.visibility = View.VISIBLE
+//        },2100)
+
         val animation: Animation = object : Animation() {
             override fun applyTransformation(interpolatedTime: Float, t: Transformation) {
                 view.layoutParams.height = if (interpolatedTime ==1f ) ViewGroup.LayoutParams.WRAP_CONTENT else (actualheight * interpolatedTime).toInt()
@@ -33,8 +40,12 @@ object RecyclerViewAnimation {
             }
         }
         animation.duration = 200
-        view.startAnimation(animation)
-        return animation
+        val alpha=AlphaAnimation(0f,1f)
+        alpha.duration=50
+        val set=AnimationSet(true)
+        set.addAnimation(animation)
+        set.addAnimation(alpha)
+        view.startAnimation(set)
     }
 
     fun collapse(view: View) {
@@ -43,7 +54,7 @@ object RecyclerViewAnimation {
         val animation: Animation = object : Animation() {
             override fun applyTransformation(interpolatedTime: Float, t: Transformation) {
                 if (interpolatedTime == 1f) {
-                    view.visibility = View.GONE
+//                    view.visibility = View.GONE
                 } else {
                     view.layoutParams.height =
                         actualHeight - (actualHeight * interpolatedTime).toInt()
@@ -52,6 +63,11 @@ object RecyclerViewAnimation {
             }
         }
         animation.duration = 200
-        view.startAnimation(animation)
+        val alpha=AlphaAnimation(1f,0f)
+        alpha.duration=50
+        val set=AnimationSet(true)
+        set.addAnimation(animation)
+        set.addAnimation(alpha)
+        view.startAnimation(set)
     }
 }

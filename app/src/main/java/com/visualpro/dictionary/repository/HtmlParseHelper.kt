@@ -1,5 +1,6 @@
 package com.visualpro.dictionary.repository
 
+import android.util.Log
 import com.visualpro.dictionary.model.Example
 import com.visualpro.myapplication.Model.Definition
 import com.visualpro.myapplication.Model.NearByWord
@@ -15,15 +16,15 @@ class HtmlParseHelper(val master: Element) {
             return nearByWordList
         }
 
+
         for (i in 0 until parseList.childrenSize()) {
             val e = parseList.child(i)
             if (e.selectFirst("pos-g[hclass=pos][htag=span]") != null) {
                 val URLnearByWord = e.child(0).attr("href")
                 val type = e.selectFirst("pos-g[hclass=pos][htag=span]")!!.text()
                 val stringBuilder = StringBuilder(e.text())
-                val word12 =
-                    stringBuilder.delete(stringBuilder.length - type.length, stringBuilder.length)
-                        .toString()
+                val word12 = stringBuilder.delete(stringBuilder.length - type.length, stringBuilder.length).toString()
+                Log.d("test", "parseNearByWord: $word12")
                 nearByWordList.add(NearByWord(word12, URLnearByWord, type))
             } else {
                 val URLnearByWord = e.child(0).attr("href")

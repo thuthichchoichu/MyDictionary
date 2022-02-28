@@ -47,7 +47,7 @@
     <string name="translating_from_english_to_vietnamese">Translating from English to Vietnamese</string>
     <string name="switch_to_origin_text">Switch to origin text</string>
     <string name="copy"><u>Copy</u></string>
-    <string name="no_favorites">No favorites...</string>
+    <string name="no_favorites">No category here....</string>
     <string name="press_to_create_a_new_category">Press + to create a new category</string>
     <string name="enter_text_to_translate1">Enter text to translate..</string>
     <string name="language">Language</string>

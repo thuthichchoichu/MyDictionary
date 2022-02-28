@@ -115,7 +115,7 @@ class DictionaryFragment : Fragment() {
 
 
         bind.btnSpeaker.setOnClickListener {
-            viewModelShare!!.playSoundUs()
+            viewModelShare!!.playDailyWordSound(bind.txtWordOfDay.text.toString())
         }
         bind.btnShowdailyword.setOnClickListener {
             navigationToDefinition(mViewModel.DailyWord.value!!.word)
