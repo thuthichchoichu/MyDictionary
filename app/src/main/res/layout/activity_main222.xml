@@ -10,7 +10,7 @@
 
         <variable
             name="ViewModel"
-            type="com.visualpro.realproject.viewmodel.MainActivityViewModel" />
+            type="com.visualpro.dictionary.viewmodel.MainActivityViewModel" />
 
         <variable
             name="tabsVisible"
@@ -21,7 +21,7 @@
         android:id="@+id/layout_drawer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.visualpro.realproject.MainActivity2">
+        tools:context="com.visualpro.dictionary.MainActivity2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

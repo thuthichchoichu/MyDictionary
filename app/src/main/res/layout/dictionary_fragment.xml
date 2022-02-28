@@ -9,7 +9,7 @@
 
         <variable
             name="ViewModel"
-            type="com.visualpro.realproject.viewmodel.DictionaryViewModel" />
+            type="com.visualpro.dictionary.viewmodel.DictionaryViewModel" />
     </data>
 
     <LinearLayout

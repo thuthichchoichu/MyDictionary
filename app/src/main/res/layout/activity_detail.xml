@@ -5,7 +5,7 @@
     <data>
        <variable
            name="ViewModel"
-           type="com.visualpro.realproject.viewmodel.DetailViewModel" />
+           type="com.visualpro.dictionary.viewmodel.DetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

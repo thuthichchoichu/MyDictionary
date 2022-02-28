@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/Users/114co/.gradle/caches/transforms-3/b8963df26f3cd28c6f2ccccf38a7786f/transformed/jetified-floatingsearchview-2.1.1/res/layout/floating_search_layout.xml" value="0.13240740740740742" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/drawable-v24/aic_favorite_small.xml" value="0.1665" />
+        <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/drawable-v24/aic_main_icon1.xml" value="0.338" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/drawable-v24/aic_unfavorite_small.xml" value="0.1665" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/drawable-v24/blue_cardview.xml" value="0.338" />
+        <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/drawable-v24/divider_black.xml" value="0.338" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/drawable-v24/ic_favorite_24.xml" value="0.22" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/drawable-v24/lightblue_round_button.xml" value="0.1115" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/drawable/aic_add2.xml" value="0.128" />
@@ -19,6 +21,7 @@
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/drawable/aic_go.xml" value="0.2045" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/drawable/aic_google.xml" value="0.338" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/drawable/aic_info.xml" value="0.338" />
+        <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/drawable/aic_main_icon.xml" value="0.338" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/drawable/aic_microphone.xml" value="0.338" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/drawable/aic_newdictionary.xml" value="0.1925" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/drawable/aic_newtranslate.xml" value="0.1925" />
@@ -164,7 +167,7 @@
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/layout/activity_result2.xml" value="0.33" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/layout/bottom_color_picker.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/layout/bottom_select_language.xml" value="0.25" />
-        <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/layout/bottom_translate.xml" value="0.33" />
+        <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/layout/bottom_translate.xml" value="0.5" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/layout/color_item.xml" value="0.75" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/layout/color_picker.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/layout/create_dialog.xml" value="0.33" />
@@ -209,6 +212,7 @@
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/menu/bottom_menu.xml" value="0.25" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/menu/menu.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/114co/AndroidStudioProjects/RealProject/app/src/main/res/menu/menu_layout.xml" value="0.20260416666666667" />
+        <entry key="..\:/Users/114co/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.33177083333333335" />
       </map>
     </option>
   </component>

@@ -10,5 +10,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "RealProject"
 include ':app'
-include ':app:test'
 include ':mylibrary'

@@ -1,301 +1,315 @@
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-    </data>
+    <data></data>
 
-    <LinearLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <RelativeLayout
+        android:layout_height="match_parent">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
 
+            app:cardCornerRadius="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/recoder"
+            app:layout_constraintTop_toTopOf="@+id/text_Output"
+            tools:layout_editor_absoluteX="20dp">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card1"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                app:cardCornerRadius="5dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp">
-
-                    <ImageView
-                        android:id="@+id/imgage2"
-                        android:layout_marginStart="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_tap"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:textIsSelectable="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="Clipboard translate"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imgage2"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <com.suke.widget.SwitchButton
-                        app:sb_checked_color="@color/orange2"
-                        android:id="@+id/switch_taptotranslate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="18dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_below="@id/card1"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_above="@id/swaplanguage"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="10dp"
-                app:cardCornerRadius="5dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:weightSum="10">
-
-                    <com.makeramen.roundedimageview.RoundedImageView
-                        android:layout_width=""
-                        android:layout_height=""
-                    
-                    <TextView
-                        android:id="@+id/textInput"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:background="@null"
-                        android:hint="fdfd"
-                        android:padding="25dp"
-                        android:textColor="@color/textColor"
-                        android:textColorHint="@color/textColor"
-                        android:textSize="16sp"
-                        android:visibility="visible"
-                        app:layout_constraintBottom_toTopOf="@+id/divider8"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="1.0" />
-
-                    <View
-                        android:id="@+id/divider8"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="?android:attr/listDivider"
-                        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="5"
-                        android:visibility="visible"
-                        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textInput"
-                        app:layout_constraintVertical_bias="0.902">
-
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:textColorHint="@color/textColor"
-                                android:textColor="@color/textColor"
-                                android:textSize="16sp"
-                                android:id="@+id/text_Output"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:padding="25dp"
-                                android:visibility="visible" />
-                            <com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar
-                                android:id="@+id/progress"
-                                android:visibility="gone"
-                                android:layout_margin="25dp"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:radius="5dp"
-                                android:color="@color/lightblue"
-                                app:dd_numDots="3"
-                                app:dd_scaleMultiplier="1.5"
-                                app:dd_animationDuration="500"
-                                app:dd_horizontalSpacing="4dp"
-                                />
-                        </LinearLayout>
-
-
-
-                    </ScrollView>
-
-                    <LinearLayout
-                        android:background="@color/lightblue"
-                        android:id="@+id/linearLayout4"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:orientation="horizontal"
-                        android:visibility="visible"
-                        android:weightSum="8"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent">
-
-                        <ImageView
-                            android:id="@+id/btn_clear"
-                            android:padding="10dp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
-                            android:layout_weight="2"
-                            android:src="@drawable/ic_clear" />
-
-                        <ImageView
-                            android:id="@+id/btn_record"
-                            android:padding="10dp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
-                            android:layout_weight="2"
-                            android:src="@drawable/aic_microphone" />
-
-                        <ImageView
-                            android:id="@+id/btn_copy"
-                            android:padding="10dp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
-                            android:layout_weight="2"
-                            android:src="@drawable/ic_copy2" />
-
-                        <ImageView
-                            android:padding="10dp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
-                            android:layout_weight="2"
-                            android:src="@drawable/ic_share" />
-                    </LinearLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-
-
-            <LinearLayout
-                android:id="@+id/swaplanguage"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_above="@id/recoder"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:weightSum="10">
 
-                <RelativeLayout
-                    android:id="@+id/lang_src"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="4.5"
-                    android:background="@drawable/blue_cardview">
 
-                    <TextView
-                        android:id="@+id/LangIn"
-                        android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/textInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@null"
+                    android:padding="25dp"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/textColor"
+                    android:textSize="14sp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toTopOf="@+id/divider8"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="0dp" />
+
+                <FrameLayout
+                    android:layout_marginBottom="40dp"
+                    android:id="@+id/divider8"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <View
+
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/divider_black" />
+                    <LinearLayout
+                        android:id="@+id/divider81"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="horizontal"
+                        android:visibility="visible"
+                        android:weightSum="10"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <FrameLayout
+                            android:id="@+id/lang_src"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="5">
+
+                            <TextView
+                                android:textColor="@color/textColor"
+                                android:textSize="12sp"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:background="@color/white"
+                                android:id="@+id/LangIn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="English" />
+                        </FrameLayout>
+
+<!--                        <ImageView-->
+<!--                            android:visibility="gone"-->
+<!--                            android:background="@color/white"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center_vertical"-->
+<!--                            android:src="@drawable/ic_baseline_compare_arrows_24" />-->
+
+                        <FrameLayout
+                            android:id="@+id/lang_out"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="5">
+
+                            <TextView
+                                android:textColor="@color/textColor"
+                                android:textSize="12sp"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:background="@color/white"
+                                android:id="@+id/textOut"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Vietnamese" />
+                        </FrameLayout>
+
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+
+                <ScrollView
+                    android:id="@+id/scrollView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider8">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_centerHorizontal="true"
-                        android:text="English" />
-                </RelativeLayout>
+                        android:orientation="vertical">
+
+                        <com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar
+                            android:id="@+id/progress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="25dp"
+                            android:color="@color/lightblue"
+                            android:radius="5dp"
+                            android:visibility="gone"
+                            app:dd_animationDuration="500"
+                            app:dd_horizontalSpacing="4dp"
+                            app:dd_numDots="3"
+                            app:dd_scaleMultiplier="1.5" />
+                    </LinearLayout>
+
+
+                </ScrollView>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/lightblue"
+                    android:orientation="horizontal"
+                    android:visibility="visible"
+                    android:weightSum="8"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageView
+                        android:id="@+id/btn_clear"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="2"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_clear" />
+
+                    <ImageView
+                        android:id="@+id/btn_record"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="2"
+                        android:padding="10dp"
+                        android:src="@drawable/aic_microphone" />
+
+                    <ImageView
+                        android:id="@+id/btn_copy"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="2"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_copy2" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="2"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_share" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
 
                 <ImageView
-
-                    android:layout_width="0dp"
+                    android:id="@+id/imgage2"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_baseline_compare_arrows_24" />
-
-
-                <RelativeLayout
-                    android:id="@+id/lang_out"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="4.5"
-                    android:background="@drawable/blue_cardview">
-
-                    <TextView
-                        android:id="@+id/textOut"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:text="Vietnamese" />
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/recoder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="horizontal">
+                    android:layout_marginStart="18dp"
+                    android:src="@drawable/ic_tap"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginEnd="8dp"
-                    android:text="Translate by"
-                    android:textColor="@color/textColor"
-                    android:textSize="14sp"
-                    android:visibility="visible" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/aic_google" />
+                    android:layout_marginStart="16dp"
+                    android:text="Clipboard translate"
+                    android:textIsSelectable="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imgage2"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout> />
-        </RelativeLayout>
-    </LinearLayout>
+                <com.suke.widget.SwitchButton
+                    android:id="@+id/switch_taptotranslate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="18dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:sb_checked_color="@color/orange2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <LinearLayout
+            android:id="@+id/recoder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/card1"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp"
+                android:text="Translate by"
+                android:textColor="@color/textColor"
+                android:textSize="14sp"
+                android:visibility="visible" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/aic_google" />
+
+        </LinearLayout>
+
+        <TextView
+            android:text="đâsdasdasdsadasd"
+            android:id="@+id/text_Output"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="25dp"
+            android:textColor="@color/textColor"
+            android:textColorHint="@color/textColor"
+            android:textSize="16sp"
+            android:visibility="gone"
+            tools:layout_editor_absoluteX="17dp"
+            tools:layout_editor_absoluteY="147dp" />
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
 
 

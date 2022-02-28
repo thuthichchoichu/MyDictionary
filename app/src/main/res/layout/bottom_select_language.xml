@@ -7,7 +7,7 @@
 
     </data>
 
-    <com.visualpro.realproject.ui.views_custom.FrameLayout_Custom
+    <com.visualpro.dictionary.ui.views_custom.FrameLayout_Custom
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:background="#00FFFFFF">
@@ -199,5 +199,5 @@
             </RelativeLayout>
 
         </RelativeLayout>
-    </com.visualpro.realproject.ui.views_custom.FrameLayout_Custom>
+    </com.visualpro.dictionary.ui.views_custom.FrameLayout_Custom>
 </layout>
