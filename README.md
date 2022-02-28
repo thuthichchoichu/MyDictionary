@@ -1,1 +1,1 @@
-apk file : https://github.com/thuthichchoichu/dictionary/new/master?readme=1
+apk file https://github.com/thuthichchoichu/dictionary/blob/master/Dictionary.apk
