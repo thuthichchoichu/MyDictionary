@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">PRO Dictionary</string>
+    <string name="back_to_home"> <u>Back</u></string>
+    <string name="search_a_word"> Search a word</string>
+    <string name="enter_text_to_translate"> Enter text to translate </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="a_fews_setting_before_start">A fews setting before start</string>
+    <string name="smart_translate_display_a_meaning_of_word_on_top_of_screen_you_need_allow_display_overing_another_app">Smart Translate display a meaning of word on top of screen, you need allow DISPLAY OVERING ANOTHER APP</string>
+    <string name="grant_permission">GRANT PERMISSION</string>
+    <string name="skip_disable_floating_translate">SKIP (DISABLE FLOATING TRANSLATE)</string>
+    <string name="these_setting_you_can_change_at_later">These settings you can change later</string>
+    <string name="auto_pop_result_up_when_text_translated">Auto pop result up when text translated</string>
+    <string name="off">Off</string>
+    <string name="set_your_language_for_paragraph_transalte">Set your language for paragraph transalte</string>
+    <string name="word_length_when_using_paragraph_translate">Word length when using paragraph Translate</string>
+    <string name="thanks_you_to_using_our_product">Thanks you to using our product</string>
+    <string name="get_start">GET START</string>
+    <string name="welcome">Welcome</string>
+    <string name="back">BACK</string>
+    <string name="next">NEXT</string>
+    <string name="easy_to_use_with_eng_to_eng_with_multiples_meaning">Easy to use, with ENG to ENG with multiples meaning</string>
+    <string name="and_eng_to_128_languages">and ENG to 128+ languages</string>
+    <string name="just_copy_it_and_enjoy">Just copy it and enjoy…</string>
+    <string name="synonym">Synonym..</string>
+    <string name="save_to">Save to</string>
+    <string name="meaning">Meaning</string>
+    <string name="translate">Translate</string>
+    <string name="search_and_put_your_word_here">Search and put your word here</string>
+    <string name="translating_from_english_to_vietnamese">Translating from English to Vietnamese</string>
+    <string name="switch_to_origin_text">Switch to origin text</string>
+    <string name="copy"><u>Copy</u></string>
+    <string name="no_favorites">No favorites...</string>
+    <string name="press_to_create_a_new_category">Press + to create a new category</string>
+    <string name="enter_text_to_translate1">Enter text to translate..</string>
+    <string name="language">Language</string>
+    <string name="all_languages">All languages</string>
+    <string name="tab_in">tab_in</string>
+    <string name="tab_out">tab_out</string>
+    <string name="all_language">ALL LANGUAGE</string>
+    <string name="search_result">SEARCH RESULT</string>
+    <string name="no_language_found">No language found</string>
+    <string name="translate_from">Translate from %1$s! </string>
+    <string name="translate_from_auto">Translate from Auto detect </string>
+    <string name="to">to %1$s!</string>
+    <string name="auto_detect">Auto detect</string>
+    <string name="auto_detect_recommend">Auto detect (recommend)</string>
+    <string name="clear">Cleared</string>
+    <string name="coming_later">Coming soon</string>
+    <string name="copied">Copied</string>
+    <string name="set_up_google_translate">Set up Google Translate</string>
+    <string name="your_primary_language">Your primary language</string>
+    <string name="language_you_translate_most_often">Language you translate most often</string>
+    <string name="home_page">https://www.oxfordlearnersdictionaries.com/</string>
+    <string name="request_property">Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2</string>
+    <string name="google_request_url">https://translate.googleapis.com/translate_a/single?client=gtx&amp;sl=auto&amp;tl=</string>
+    <string name="save">Save</string>
+    <string name="definition_of">Definition of %1$s in English</string>
+    <string name="us">US: </string>
+    <string name="uk">UK: </string>
+    <string name="lastedit">Last edit %1$s</string>
+    <string name="fserviceruuning">Tap to open</string>
+    <string name="word_detect">Detect</string>
+
+
+</resources>

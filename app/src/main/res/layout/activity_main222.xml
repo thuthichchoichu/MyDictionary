@@ -1,0 +1,103 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.google.android.material.tabs.TabLayout" />
+
+        <variable
+            name="ViewModel"
+            type="com.visualpro.realproject.viewmodel.MainActivityViewModel" />
+
+        <variable
+            name="tabsVisible"
+            type="boolean" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/layout_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.visualpro.realproject.MainActivity2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundcolor"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:elevation="1dp"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="PRO Dictionary"
+                    android:textColor="@color/black1"
+                    android:textSize="20sp" />
+            </androidx.appcompat.widget.Toolbar>
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+
+            <nl.joery.animatedbottombar.AnimatedBottomBar
+                app:abb_animationDuration="300"
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                app:abb_badgeTextColor="@color/textColor"
+                app:abb_indicatorAnimation="slide"
+                app:abb_indicatorAppearance="square"
+                app:abb_indicatorColor="@color/orange2"
+                app:abb_indicatorHeight="2dp"
+                app:abb_indicatorMargin="16dp"
+                app:abb_rippleEnabled="false"
+                app:abb_selectedIndex="1"
+                app:abb_selectedTabType="text"
+                app:abb_tabColor="@color/textColor"
+                app:abb_tabColorSelected="@color/orange2"
+                app:abb_tabs="@menu/bottom_menu"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:headerLayout="@layout/header"
+            app:menu="@menu/menu_layout" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

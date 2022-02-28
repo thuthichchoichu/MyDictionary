@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    app:cardCornerRadius="10dp"
+    android:background="@android:color/transparent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_google" />
+
+        <ImageView
+            android:id="@+id/btn_Close"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/aic_close" />
+
+        <TextView
+            android:textIsSelectable="true"
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20sp"
+            android:text="Google+ require "
+            android:textColor="@color/black1"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:textIsSelectable="true"
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="20sp"
+            android:text="Text to speech recognize is available with Google application. Get it from Play Store!"
+            android:textColor="#7E7E7E"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/got_It"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_below="@id/text2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/blue_round_button"
+            android:text="Got it!"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/_translate"
+        android:title="Translate"
+        android:icon="@drawable/aic_newtranslate"/>
+    <item android:id="@+id/_dictionary"
+        android:title="Dictionary"
+        android:icon="@drawable/aic_newdictionary"/>
+    <item android:id="@+id/_favorite"
+        android:title="Favorite"
+        android:icon="@drawable/aic_newheart"/>
+    <item android:id="@+id/definition"
+        android:title="Definition"
+        android:icon="@drawable/aic_newdef"/>
+
+</menu>

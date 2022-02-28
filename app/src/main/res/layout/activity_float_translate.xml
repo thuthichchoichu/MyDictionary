@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="5dp"
+    app:cardBackgroundColor="#F2F2F2"
+    tools:context=".ui.float_translate.FloatTranslate">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:textColor="@color/textColor"
+            android:layout_marginTop="10dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:id="@+id/spinner_language"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <!--            android:id="@+id/image1"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_alignParentEnd="true"-->
+        <!--            android:layout_centerVertical="true"-->
+        <!--            android:src="@drawable/aic_speaker"-->
+        <!--            tools:layout_editor_absoluteX="181dp"-->
+        <!--            tools:layout_editor_absoluteY="222dp" />-->
+        <com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar
+            android:id="@+id/progressbar2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:indeterminateTint="@color/orange2"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner_language"
+            app:layout_constraintStart_toEndOf="@+id/spinner_language"
+            app:layout_constraintTop_toTopOf="@+id/spinner_language"
+            app:layout_constraintVertical_bias="1.0"
+            android:color="#FB8C00"
+            android:radius="3dp"
+            app:dd_animationDuration="500"
+            app:dd_horizontalSpacing="4dp"
+            app:dd_numDots="3"
+            app:dd_scaleMultiplier="1.5" />
+
+        <ImageView
+            android:id="@+id/btn_copy_float"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_copy2"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner_language"
+            app:layout_constraintEnd_toStartOf="@+id/btn_speaker_float"
+            app:layout_constraintTop_toTopOf="@+id/spinner_language" />
+
+        <ImageView
+            android:id="@+id/btn_speaker_float"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_speaker"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner_language"
+            app:layout_constraintEnd_toEndOf="@+id/edt_translate"
+            app:layout_constraintTop_toTopOf="@+id/spinner_language" />
+
+        <EditText
+            android:id="@+id/edt_translate"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="9dp"
+            android:background="@null"
+            android:focusedByDefault="false"
+            android:gravity="top"
+            android:hint="Long click anywhere and copy, your text will be here"
+            android:padding="8dp"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_language"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="#57A8F2"
+            app:iconGravity="end"
+            android:text="Translate"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/edt_translate" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

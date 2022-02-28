@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.visualpro.realproject">
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <application
+
+        android:name=".MainApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_book_svgrepo_com"
+        android:label="Dictionary"
+        android:theme="@style/Transparent"
+        android:roundIcon="@drawable/ic_book_svgrepo_com"
+        android:supportsRtl="true"
+        tools:replace="android:label">
+
+        <service android:name=".TapToTranslateService"/>
+
+        <activity
+            android:windowSoftInputMode="stateHidden"
+            android:excludeFromRecents="true"
+            android:name=".ui.float_translate.FloatTranslate"
+            android:exported="false" />
+        <activity android:name=".ui.DetailActivity" />
+        <activity
+            android:name=".ui.MainActivity2"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

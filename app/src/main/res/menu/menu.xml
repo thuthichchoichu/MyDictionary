@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--    <item-->
+<!--        android:icon="@drawable/ic_baseline_search_24"-->
+<!--        android:id="@+id/search_Widget"-->
+<!--        app:showAsAction="ifRoom|collapseActionView"-->
+<!--        app:actionViewClass="androidx.appcompat.widget.SearchView"-->
+<!--        android:title="Search" />-->
+<!--    <item-->
+<!--        android:icon="@drawable/icadd_menu"-->
+<!--        android:id="@+id/btn_add_category"-->
+<!--        app:showAsAction="ifRoom|collapseActionView"-->
+<!--        android:title="TODO" />-->
+<!--    <item-->
+<!--        android:icon="@drawable/ic_add_fav"-->
+<!--        android:visible="false"-->
+<!--        android:id="@+id/btn_Save"-->
+<!--        app:showAsAction="ifRoom|collapseActionView"/>-->
+
+</menu>
