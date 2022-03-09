@@ -3,7 +3,10 @@ apk install file https://github.com/thuthichchoichu/dictionary/blob/master/Dicti
 Demo of the application
 
 
-![i1](https://user-images.githubusercontent.com/92613762/157404309-f86e62ea-b8f2-4ee4-94ea-cd25f5008a74.png)
-![i2](https://user-images.githubusercontent.com/92613762/157404322-544291a0-8691-45f4-bef9-43658ec336ef.png)
-![i3](https://user-images.githubusercontent.com/92613762/157404323-38602d1a-3cc5-4f87-8aa3-c7350b99bba7.png)
-![i4](https://user-images.githubusercontent.com/92613762/157404326-a178f4fa-83c4-4b0f-af6a-6eb0fb6342d4.png)
+
+![j2](https://user-images.githubusercontent.com/92613762/157405581-55410edc-d389-4be5-b5c6-bc2144ebae46.png)
+![j3](https://user-images.githubusercontent.com/92613762/157405590-e7eff84e-7573-4cfe-bbaf-22b031afe1f0.png)
+![i2](https://user-images.githubusercontent.com/92613762/157405592-fe96965e-bea6-4aff-986b-5d0af17076e7.png)
+![i3](https://user-images.githubusercontent.com/92613762/157405594-86d1140e-35ec-467a-ab8f-0f61833b8302.png)
+![i4](https://user-images.githubusercontent.com/92613762/157405597-a38d995c-d934-4a43-b697-9146eead4bd7.png)
+![j1](https://user-images.githubusercontent.com/92613762/157405602-c5101d05-ec59-47df-863f-812db8ee52f2.png)
