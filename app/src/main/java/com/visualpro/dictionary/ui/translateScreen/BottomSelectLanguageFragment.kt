@@ -68,11 +68,13 @@ class BottomSelectLanguageFragment() : BottomSheetDialogFragment(), AdapterSelec
     ): View? {
 
         binding = BottomSelectLanguageBinding.inflate(inflater, container, false).apply {
-            rcvSelectLanguages.addOnItemTouchListener(disableTouch)
+
             if (type == TYPE_TRANSLATE_TO) {
+
                 textView8.visibility = View.GONE
                 cardView.visibility = View.GONE
             } else {
+                rcvSelectLanguages.addOnItemTouchListener(disableTouch)
                 textView8.visibility = View.VISIBLE
                 cardView.visibility = View.VISIBLE
             }

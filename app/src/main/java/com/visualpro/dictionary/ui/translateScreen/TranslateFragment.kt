@@ -25,8 +25,6 @@ import com.visualpro.dictionary.TapToTranslateService
 import com.visualpro.dictionary.TapToTranslateService.Companion.CHANNEL_ID
 import com.visualpro.dictionary.databinding.GGTranslateFragmentBinding
 import com.visualpro.dictionary.viewmodel.GGTranslateViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
 import java.util.*
 
 
@@ -82,19 +80,28 @@ class TranslateFragment : Fragment() {
             }
 
         } else {
-
             allowService(true)
+
         }
     }
 
     fun allowService(isChecked: Boolean) {
         startFloatTranslateService(isChecked)
         viewModel.onTapTptranslateCofigChange(isChecked)
+
+    }
+
+    private fun showHowToUseDialog() {
+        showHowToUse=false
+
+        MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme).setTitle("Floating Translate")
+            .setMessage("Floating Translate help you translate anywhere on screen by long click and select on the text which you want to translate!")
+            .setPositiveButton("OK", null).show()
     }
 
     private fun showPermissionDialog() {
         MaterialAlertDialogBuilder(requireActivity(), R.style.AlertDialogTheme).setTitle("PERMISSION REQUIRE")
-            .setMessage("This feature need the Displaying Over Other App Permission, allow? ")
+            .setMessage("This feature need the Displaying over other app permission, allow? ")
             .setPositiveButton("GRANT", object : DialogInterface.OnClickListener {
                 override fun onClick(p0: DialogInterface?, p1: Int) {
                     Intent(
@@ -113,15 +120,20 @@ class TranslateFragment : Fragment() {
 
     }
 
+    private var showHowToUse=false
     private var switchListen=  object : SwitchButton.OnCheckedChangeListener {
         override fun onCheckedChanged(view: SwitchButton?, isChecked: Boolean) {
             if (isChecked) {
+                if(showHowToUse){
+                    showHowToUseDialog()
+                }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     checkDrawOverlayPermission()
                 }else{
                     allowService(true)
                 }
             } else {
+                showHowToUse=true
                 allowService(false)
             }
         }
@@ -214,13 +226,8 @@ class TranslateFragment : Fragment() {
 
         }
     }
-
-    private val mCoroutine = CoroutineScope(IO)
     private var isBound = false
-
-
     private lateinit var mService: TapToTranslateService
-
     private var conn = object : ServiceConnection {
         override fun onServiceConnected(p0: ComponentName?, p1: IBinder?) {
             val mBinder = p1 as TapToTranslateService.mBinder
@@ -325,9 +332,9 @@ class TranslateFragment : Fragment() {
 
                 getStringFromVoiceSearch.launch(this)
             } catch (e: ActivityNotFoundException) {
-                val dialog = MaterialAlertDialogBuilder( requireContext(),R.style.AlertDialogTheme).apply {
+                MaterialAlertDialogBuilder( requireContext(),R.style.AlertDialogTheme).apply {
                     setTitle("Google+ require")
-                    setMessage("Text recognize is a work with Google+ application, got it from Play Store now")
+                    setMessage("Text recognize working with Google+ application, do you want to download from Google Play store now?" )
                     setPositiveButton("Ok", object : DialogInterface.OnClickListener {
                         override fun onClick(p0: DialogInterface?, p1: Int) {
                             val appPackageName = "com.google.android.googlequicksearchbox"

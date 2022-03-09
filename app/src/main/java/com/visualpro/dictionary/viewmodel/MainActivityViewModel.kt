@@ -1,9 +1,6 @@
 package com.visualpro.dictionary.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 import com.visualpro.dictionary._interface.CallbackSoundLoaded
 import com.visualpro.dictionary.model.RecentItem
 import com.visualpro.dictionary.model.WordTypeSeparate
@@ -13,12 +10,20 @@ import com.visualpro.dictionary.repository.network.submodel.SearchText
 import com.visualpro.myapplication.Model.Category
 import com.visualpro.myapplication.Model.Definition
 import com.visualpro.myapplication.Model.Word
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 
 class MainActivityViewModel( val mRepo: Repository, path: String) : ViewModel(),
     CallbackSoundLoaded {
     init {
         mRepo.localFilePath = path
         mRepo.soundCallBack = this
+        viewModelScope.launch {
+            delay(2000)
+            _stateSplashScreen.value=false
+        }
     }
     var mWordTypeSeparate = MutableLiveData<List<WordTypeSeparate>>()
 
@@ -28,6 +33,8 @@ class MainActivityViewModel( val mRepo: Repository, path: String) : ViewModel(),
         }
     }
 
+    private var _stateSplashScreen= MutableStateFlow(true)
+    var stateSplashScreen=_stateSplashScreen.asStateFlow()
     fun getWord(): Word? {
         return mDefinition.value?.word
     }

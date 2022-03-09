@@ -218,9 +218,9 @@ class DictionaryFragment : Fragment() {
                 getStringFromVoiceSearch.launch(this)
             } catch (e: ActivityNotFoundException) {
 
-                val dialog = MaterialAlertDialogBuilder( requireContext(),R.style.AlertDialogTheme).apply {
+             MaterialAlertDialogBuilder( requireContext(),R.style.AlertDialogTheme).apply {
                     setTitle("Google+ require")
-                    setMessage("Text recognize is a work with Google+ application, got it from Play Store now")
+                    setMessage("Text recognize working with Google+ application, do you want to download from Google Play store now?")
                     setPositiveButton("Ok", object : DialogInterface.OnClickListener {
                             override fun onClick(p0: DialogInterface?, p1: Int) {
                                 val appPackageName = "com.google.android.googlequicksearchbox"

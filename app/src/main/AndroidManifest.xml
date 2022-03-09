@@ -26,6 +26,7 @@
             android:exported="false" />
         <activity android:name="com.visualpro.dictionary.ui.favorite_screen.DetailActivity" />
         <activity
+            android:theme="@style/Splash"
             android:name="com.visualpro.dictionary.ui.MainActivity2"
             android:exported="true">
             <intent-filter>

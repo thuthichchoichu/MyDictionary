@@ -3,6 +3,7 @@ package com.visualpro.dictionary.ui
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import com.visualpro.dictionary.MainApplication
 import com.visualpro.dictionary.R
@@ -27,7 +28,7 @@ class MainActivity2 : AppCompatActivity(), CreateCategoryWithName {
         const val LAST_EDIT = "lastedit"
         const val SOUND_TEMPORARY_US = "temporary.us"
         const val SOUND_TEMPORARY_UK = "temporary.uk"
-        const val SOUND_TEMPORARY_DAILY_WORD= "dailyword.uk"
+        const val SOUND_TEMPORARY_DAILY_WORD = "dailyword.uk"
     }
 
     var callBackSaveCurrentWord: onRequestSaveCurrentWord? = null
@@ -53,6 +54,9 @@ class MainActivity2 : AppCompatActivity(), CreateCategoryWithName {
         setTheme(R.style.Theme_mainActivityTheme)
         super.onCreate(savedInstanceState)
         binding = ActivityMain222Binding.inflate(layoutInflater)
+        installSplashScreen().apply {
+            setKeepOnScreenCondition { mViewModel.stateSplashScreen.value }
+        }
         setUpViewPager()
         setSupportActionBar(binding.toolbar)
         getSupportActionBar()!!.setDisplayShowTitleEnabled(false);
@@ -88,9 +92,9 @@ class MainActivity2 : AppCompatActivity(), CreateCategoryWithName {
         })
     }
 
-     fun showFavFragmentDisplayCreateCategoryDialog(){
-         ( findFragmentAtPosition(2) as FavoriteFragment).showCreateDialog()
-     }
+    fun showFavFragmentDisplayCreateCategoryDialog() {
+        (findFragmentAtPosition(2) as FavoriteFragment).showCreateDialog()
+    }
 
     fun findFragmentAtPosition(position: Int): Fragment? {
         return supportFragmentManager.findFragmentByTag("f$position")

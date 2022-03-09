@@ -8,11 +8,11 @@
            type="com.visualpro.dictionary.viewmodel.DetailViewModel" />
     </data>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_layout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <TextView
             android:id="@+id/putYourwordHere"
             android:layout_width="wrap_content"
